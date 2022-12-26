@@ -99,7 +99,7 @@ a {
 .dot-up {
     top: -50px;
     right: 0;
-    background-image: url(/photo/dots.png);
+    background-image: url(photo/dots.png);
     transform-origin: right;
 
 }
@@ -107,7 +107,7 @@ a {
 .dot-down {
     bottom: -50px;
     left: 0;
-    background-image: url(/photo/Dots-left.png);
+    background-image: url(photo/Dots-left.png);
     transform-origin: left;
 
 }
@@ -1478,7 +1478,7 @@ a {
 .latest-eve .dot-up {
     top: -50px;
     right: 0;
-    background-image: url(/photo/dots.png);
+    background-image: url(photo/dots.png);
     transform-origin: right;
 
 }
@@ -1486,7 +1486,7 @@ a {
 .latest-eve .dot-down {
     bottom: -50px;
     left: 0;
-    background-image: url(/photo/Dots-left.png);
+    background-image: url(photo/Dots-left.png);
     transform-origin: left;
 
 }
@@ -1862,7 +1862,7 @@ a {
     padding-top: var(--main-padding-top);
     padding-bottom: var(--main-padding-bottom);
     background-size: cover;
-    background-image: url(/photo/Stats\ BG.jpg);
+    background-image: url(photo/Stats\ BG.jpg);
     min-height: 300px;
 }
 
@@ -1959,7 +1959,7 @@ a {
 }
 
 .discount .hav-disc {
-    background-image: url(/photo/G2.jpg);
+    background-image: url(photo/G2.jpg);
     background-size: cover;
     color: white;
     flex-basis: 50%;
@@ -1977,11 +1977,11 @@ a {
 
     0%,
     100% {
-        background-image: url(/photo/gradient-navy-blue-digital-grid-wallpaper.jpg);
+        background-image: url(photo/gradient-navy-blue-digital-grid-wallpaper.jpg);
     }
 
     50% {
-        background-image: url(/photo/Stats\ BG.jpg);
+        background-image: url(photo/Stats\ BG.jpg);
     }
 }
 
