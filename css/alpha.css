@@ -1284,7 +1284,7 @@ a {
     color: #292929;
 }
 
-.our-skills .details p {
+.our-skills .details span {
     color: var(--main-color);
     border: 1px solid rgba(119, 119, 119, 0.493);
     border-radius: 3px;
@@ -1298,7 +1298,6 @@ a {
     height: 30px;
     position: relative;
     transition: width 0.5s linear;
-
 }
 
 .our-skills .data-area .skills-bar span {
@@ -1308,6 +1307,7 @@ a {
     height: 100%;
     background-color: var(--main-color);
     transition: width 0.6s linear;
+    border-radius: 3px;
 }
 
 /* End Our Skills */
