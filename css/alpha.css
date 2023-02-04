@@ -142,7 +142,7 @@ a {
 .sticky {
     position: sticky;
     top: 0;
-    left: 0;
+    /* left: 0; */
     background-color: #090909e0;
     -webkit-box-shadow: 0 0 10px #ddd;
     -moz-box-shadow: 0 0 10px #ddd;
@@ -163,7 +163,11 @@ a {
     flex-wrap: wrap;
     position: relative;
 }
-
+@media (max-width: 767px){
+    .header .container {
+        justify-content: center;
+    }
+}
 .header .logo {
     color: white;
     font-size: 30px;
@@ -175,18 +179,14 @@ a {
     justify-content: center;
 }
 
-@media (max-width: 350px) {
-    .header .logo {
+@media (max-width: 767px) {
+    .sticky .logo {
+        width: 100%;
         font-size: 24px;
         height: 40px;
     }
-}
-
-@media (max-width: 767px) {
-    .header .logo {
-        width: 100%;
     }
-}
+
 
 .header .nav-menu {
     display: flex;
@@ -212,19 +212,13 @@ a {
 }
 
 
-.header .nav-menu li:hover .mega-menu {
+.header .nav-menu li#megaLink:hover .mega-menu {
+    display: flex;
     opacity: 1;
     z-index: 100;
     top: calc(100% + 1px);
 }
 
-@media (max-width: 350px) {
-    .header .nav-menu>li>a {
-        padding: 0 5px;
-        font-size: 16px;
-        height: 40px;
-    }
-}
 
 @media (max-width: 767px) {
     .header .nav-menu>li>a {
@@ -261,10 +255,10 @@ a {
 
 /* Start Mega Menu */
 .header .nav-menu .mega-menu {
-    display: flex;
+    display: none;
+    position: absolute;
     padding: 30px;
     border-bottom: 3px solid var(--main-color);
-    position: absolute;
     width: 100%;
     left: 0;
     top: calc(100% + 50px);
@@ -304,7 +298,7 @@ a {
 }
 
 .header .nav-menu .mega-menu .links li {
-    position: relative;
+    /* position: relative; */
     overflow: hidden;
 }
 
@@ -325,7 +319,7 @@ a {
     background-color: #2196f30d;
     top: 0;
     left: -100%;
-    width: 100%;
+    width: inherit;
     height: 100%;
     transition: var(--main-transition);
     transform-origin: left;
