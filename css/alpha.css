@@ -126,11 +126,27 @@ a {
 
 /* Start Header  */
 .header {
-    background-color: white;
+    background-color: #00364e;
     position: relative;
+    top: 0;
+    left: 0;
+    padding: 40px 100px;
+    color: white;
+    transition: 0.6s;
+    z-index: 100000;
+    width: 100%;
+}
+.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: white;
     -webkit-box-shadow: 0 0 10px #ddd;
     -moz-box-shadow: 0 0 10px #ddd;
-    box-shadow: 0 0 10px #ddd;
+    box-shadow: 0 0 10px #dddddd6c;
+    padding: 5px 100px;
+    z-index: 100000;
+    width: 100%;
 }
 
 .header .container {
@@ -142,15 +158,17 @@ a {
 }
 
 .header .logo {
-    color: var(--main-color);
-    font-size: 26px;
+    color: white;
+    font-size: 30px;
     font-weight: bold;
     height: 72px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
+.sticky .logo {
+    color: var(--main-color);
+}
 @media (max-width: 350px) {
     .header .logo {
         font-size: 24px;
@@ -180,11 +198,14 @@ a {
     align-items: center;
     height: 72px;
     position: relative;
-    color: black;
+    color: white;
     padding: 0 30px;
     transition: var(--main-transition);
     font-size: 18px;
     overflow: hidden;
+}
+.sticky .nav-menu>li>a {
+    color: black;
 }
 
 .header .nav-menu li:hover .mega-menu {
@@ -338,7 +359,7 @@ a {
     top: -40px;
     z-index: -1;
     left: 0;
-    background-color: #ececec;
+    background-color: #00364e;
     transform: skewY(-6deg);
     transform-origin: top left;
 }
@@ -1527,7 +1548,7 @@ a {
     margin: 20px auto;
 }
 
-.latest-eve .time .days {
+.latest-eve .time .timer-box {
     display: flex;
     flex-direction: column;
     border: 1px solid #d4d4d4;
@@ -1536,7 +1557,7 @@ a {
     border-radius: 7px;
 }
 
-.latest-eve .time .days:hover {
+.latest-eve .time .timer-box:hover {
     border-color: var(--main-color);
 }
 
@@ -1544,7 +1565,7 @@ a {
     border-color: var(--main-color);
 }
 
-.latest-eve .time .days span:first-child {
+.latest-eve .time .timer-box span:first-child {
     color: var(--main-color);
     border-bottom: 1px solid #d4d4d4;
     padding: 10px 0;
@@ -1552,7 +1573,7 @@ a {
     font-size: 30px;
 }
 
-.latest-eve .time .days span:last-child {
+.latest-eve .time .timer-box span:last-child {
     font-size: 12px;
     padding: 10px;
 }
