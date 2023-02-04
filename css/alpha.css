@@ -49,6 +49,9 @@ a {
     text-decoration: none;
 }
 
+.clear{
+    clear: both;
+}
 /* Start Container Style  */
 .container {
     padding-left: 15px;
@@ -127,20 +130,20 @@ a {
 /* Start Header  */
 .header {
     background-color: #00364e;
-    position: relative;
+    /* position: relative; */
     top: 0;
     left: 0;
     padding: 40px 100px;
     color: white;
     transition: 0.6s;
     z-index: 100000;
-    width: 100%;
+    width: 100% !important;
 }
 .sticky {
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
-    background-color: white;
+    background-color: #090909e0;
     -webkit-box-shadow: 0 0 10px #ddd;
     -moz-box-shadow: 0 0 10px #ddd;
     box-shadow: 0 0 10px #dddddd6c;
@@ -148,7 +151,11 @@ a {
     z-index: 100000;
     width: 100%;
 }
-
+@media (max-width: 768px){
+    .header, .sticky {
+        padding: 5px 30px;
+    }
+}
 .header .container {
     display: flex;
     justify-content: space-between;
@@ -161,14 +168,13 @@ a {
     color: white;
     font-size: 30px;
     font-weight: bold;
+    line-height: 3px;
     height: 72px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.sticky .logo {
-    color: var(--main-color);
-}
+
 @media (max-width: 350px) {
     .header .logo {
         font-size: 24px;
@@ -204,9 +210,7 @@ a {
     font-size: 18px;
     overflow: hidden;
 }
-.sticky .nav-menu>li>a {
-    color: black;
-}
+
 
 .header .nav-menu li:hover .mega-menu {
     opacity: 1;
@@ -409,9 +413,9 @@ a {
 }
 
 .landing .text h1 {
+    color: white;
     font-size: 40px;
     margin: 0;
-    letter-spacing: -2px;
 }
 
 @media (max-width:767px) {
@@ -425,7 +429,7 @@ a {
     max-width: 500px;
     font-size: 23px;
     line-height: 1.7;
-    color: #666;
+    color: #919191;
 }
 
 @media (max-width:767px) {
