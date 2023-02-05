@@ -1,8 +1,8 @@
 let megaImgDiv = document.querySelector(".mega-Img");
-
+let ovrlyMegaImg = document.createElement(megaImgDiv:befor);
 let megaImgPic = document.createElement("img");
 megaImgDiv.append(megaImgPic);
-megaImgPic.src = "/photo/megamenu.png";
+megaImgPic.src = "../photo/megamenu.png";
 megaImgPic.style.cssText =
   "width: 100%;";
 
@@ -31,7 +31,7 @@ let scrIcon = document.createElement("i");
 scrIcon.style.fontSize = "18px";
 
 scrBtn.style.cssText =
-  "background-color: #00364e; color: white; width: 30px; height: 30px; padding: 5px; border-radius: 5px; border: none; position: fixed; bottom: 20px; right: 20px; cursor: pointer; display: none; z-index: 100;";
+  "background-color: var(--main-color); color: white; width: 30px; height: 30px; padding: 5px; border-radius: 5px; border: none; position: fixed; bottom: 20px; right: 20px; cursor: pointer; display: none; z-index: 100;";
 scrIcon.className = "fa-solid fa-chevron-up";
 // Append btn to document
 scrBtn.append(scrIcon);
