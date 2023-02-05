@@ -1,12 +1,35 @@
+// Landing Zone
+// Background color animation
+// let hexArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "F"];
+// let colorParts = [];
 
-window.addEventListener ("scroll", function() {
-  // let scroLled = window.scrollY;
+// for (i = 0; i < 6; i++) {
+//   colorParts.push(hexArray[Math.floor(Math.random() * hexArray.length)]);
+// }
+// ;
+// let finalColor = `#${colorParts.join("")}`;
+// console.log(finalColor)
+// let landing = document.querySelector(".landing");
+// landing.style.backgroundColor = finalColor;
+
+// Start Creating ScrollUp Button
+let scrBtn = document.createElement("button");
+scrBtn.className = "scroll-Up";
+// Scroll button icon
+let scrIcon = document.createElement("i");
+scrIcon.style.fontSize = "18px";
+
+scrBtn.style.cssText =
+  "background-color: #00364e; color: white; width: 30px; height: 30px; padding: 5px; border-radius: 5px; border: none; position: fixed; bottom: 20px; right: 20px; cursor: pointer; display: none; z-index: 100;";
+scrIcon.className = "fa-solid fa-chevron-up";
+// Append btn to document
+scrBtn.append(scrIcon);
+document.body.prepend(scrBtn);
+
+window.addEventListener("scroll", function () {
   let header = document.querySelector(".header");
-  header.classList.toggle("sticky", window.scrollY > 0)
-
-  }
-)
-
+  header.classList.toggle("sticky", window.scrollY > 0);
+});
 
 // Our Skills animat
 let skillsSction = document.querySelector(".our-skills");
@@ -23,13 +46,30 @@ window.onscroll = function () {
       span.style.width = span.dataset.width;
     });
   }
+
   // Start ourskills number animat
-  if (window.scrollY >= statSec.offsetTop) {
+  if (window.scrollY >= statSec.offsetTop - 20) {
     if (!started) {
       nums.forEach((num) => startCount(num));
     }
     started = true;
   }
+
+  // Scrollup btn display
+  if (window.scrollY >= 600) {
+    console.log(`Scrolling Value Is ${window.scrollY}`);
+    scrBtn.style.display = "block";
+  } else {
+    scrBtn.style.display = "none";
+  }
+};
+
+scrBtn.onclick = function () {
+  window.scrollTo({
+    left: 0,
+    top: 0,
+    behavior: "smooth",
+  });
 };
 
 function startCount(el) {

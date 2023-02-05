@@ -3,7 +3,7 @@
     --main-color: #2196f3;
     --main-color-alt: #1787e0;
     --main-opacity-color: #2195f309;
-    --main-transition: 0.4s;
+    --main-transition: 0.6s;
     --main-padding-top: 100px;
     --main-padding-bottom: 100px;
     --section-background: #ececec;
@@ -20,6 +20,16 @@ body {
 html {
     scroll-behavior: smooth;
     transition: var(--main-transition);
+}
+
+:focus {
+    outline: 3px solid var(--main-color);    
+}
+:focus:not(:focus-visible){
+    outline: none;
+}
+:focus-visible{
+        outline: 3px solid var(--main-color);
 }
 
 /* End Variables */
@@ -61,7 +71,7 @@ a {
 
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
     .container {
         width: 750px;
     }
@@ -77,7 +87,7 @@ a {
     .container {
         width: 1170px;
     }
-}
+} */
 
 /* End Container Style  */
 /* Start Dots Animation */
@@ -139,21 +149,26 @@ a {
     z-index: 100000;
     width: 100% !important;
 }
+
 .sticky {
     position: sticky;
     top: 0;
-    /* left: 0; */
-    background-color: #090909e0;
-    -webkit-box-shadow: 0 0 10px #ddd;
-    -moz-box-shadow: 0 0 10px #ddd;
-    box-shadow: 0 0 10px #dddddd6c;
-    padding: 5px 100px;
+    background-color: #00364ef5;
+    padding: 0 100px;
     z-index: 100000;
     width: 100%;
 }
+
 @media (max-width: 768px){
-    .header, .sticky {
+    .header {
         padding: 5px 30px;
+    }
+    .sticky {
+        padding: 5px 30px;
+    }
+    .sticky .mega-menu{
+        padding: 5px 30px;        
+        top: calc(100% + 40px);        
     }
 }
 .header .container {
@@ -162,6 +177,7 @@ a {
     align-items: center;
     flex-wrap: wrap;
     position: relative;
+    padding: 0;
 }
 @media (max-width: 767px){
     .header .container {
@@ -212,12 +228,7 @@ a {
 }
 
 
-.header .nav-menu li#megaLink:hover .mega-menu {
-    display: flex;
-    opacity: 1;
-    z-index: 100;
-    top: calc(100% + 1px);
-}
+
 
 
 @media (max-width: 767px) {
@@ -242,8 +253,10 @@ a {
 }
 
 .header .nav-menu>li>a:hover {
-    color: var(--main-color);
-    background-color: #2196f30d;
+    background-color: #002b3d30;
+}
+.sticky .nav-menu>li>a:hover {
+    background-color: #00364e;
 }
 
 .header .nav-menu>li>a:hover::before {
@@ -266,39 +279,55 @@ a {
     z-index: -1;
     opacity: 0;
     transition: top var(--main-transition);
-    background-color: white;
+    background-image: linear-gradient(164deg, #00141d50 75%, #00364e50);
+    border-radius: 0 0 10px 10px;
 }
 
+.header li#megaLink:hover .mega-menu {
+    display: flex;
+    opacity: 1;
+    z-index: 100;
+    top: calc(100% + 40px);
+    transition: var(--main-transition);
+    backdrop-filter: blur(7px);
+    transition: var(--main-transition);
+}
+
+.sticky .mega-menu {
+        top: calc(100% + 1px)!important;
+}
 @media (max-width: 767px) {
     .header .nav-menu .mega-menu {
         flex-direction: column;
         gap: 0;
         padding: 10px;
     }
-}
+};
 
 .header .nav-menu .mega-menu .image {
     margin: 10px;
-}
+    text-align: center;
+};
 
 @media (max-width: 991px) {
-    .header .nav-menu .mega-menu .image {
-        display: none;
+    .mega-menu .image>img{
+        display: none !important;
     }
-}
+};
 
 .header .nav-menu .mega-menu .image img {
-    max-width: 100%;
+    max-width: 75%;
 }
 
 .header .nav-menu .mega-menu .links {
     margin: 0;
     min-width: 250px;
     flex: 1;
+    line-height: 1.7;
 }
 
 .header .nav-menu .mega-menu .links li {
-    /* position: relative; */
+    position: relative;
     overflow: hidden;
 }
 
@@ -316,10 +345,10 @@ a {
 .header .nav-menu .mega-menu .links li::before {
     content: '';
     position: absolute;
-    background-color: #2196f30d;
+    background-color: #002130f5;
     top: 0;
     left: -100%;
-    width: inherit;
+    width: 100%;
     height: 100%;
     transition: var(--main-transition);
     transform-origin: left;
@@ -333,14 +362,14 @@ a {
 .header .nav-menu .mega-menu .links a {
     display: block;
     font-size: 18px;
-    color: var(--main-color);
+    color: white;
     padding: 10px;
     font-weight: bold;
 }
 
 .header .nav-menu .mega-menu .links a i {
     margin-right: 10px;
-    color: var(--main-color);
+    color: white;
 }
 
 /* End Mega Menu */
@@ -357,7 +386,7 @@ a {
     top: -40px;
     z-index: -1;
     left: 0;
-    background-color: #00364e;
+    /* background-color: #00364e; */
     transform: skewY(-6deg);
     transform-origin: top left;
 }
@@ -448,6 +477,7 @@ a {
 
 .landing .section-arrow i {
     animation: bouncing 1.5s infinite;
+
 }
 
 /* Start Animation */
@@ -479,50 +509,8 @@ a {
         transform: translateY(-20px);
     }
 }
-
 /* End Animation */
-
 /* End Landing */
-/* Start Scroll  */
-.scroll-up {
-    display: flex;
-    justify-content: center;
-    position: fixed;
-    bottom: 16px;
-    right: 32px;
-    font-size: 32px;
-    color: var(--main-color);
-    transition: var(--main-transition);
-    animation: scroll-up 1s alternate-reverse infinite ease-in;
-    z-index: 100;
-    opacity: 0;
-    /* pointer-events: none; */
-}
-
-/* .scroll-up.active {
-    opacity: 1;
-    pointer-events: auto;
-    bottom: 32px;
-
-} */
-
-.scroll-up:hover {
-    color: var(--main-color-alt);
-}
-
-@keyframes scroll-up {
-    0% {
-        opacity: 0.5;
-    }
-
-    100% {
-        scale: 1.1;
-        color: #009688;
-        opacity: 1;
-    }
-}
-
-/* End Scroll  */
 
 /* Start Articles */
 .articles {
@@ -1792,6 +1780,7 @@ a {
     margin: 20px auto;
     font-weight: bold;
     transition: 0.3s;
+    z-index: 25;
 }
 
 .price .card .choose:hover {
@@ -2122,6 +2111,11 @@ a {
     color: white;
     margin: 0 0 20px;
 }
+.footer .social-foot h4 {
+    font-size: 25px;
+    color: white;
+    margin: 0 0 20px;
+}
 
 .footer .social-foot .media-icon {
     display: inline-flex;
@@ -2189,11 +2183,16 @@ a {
     margin-right: 10px;
 }
 
+
+.adresse {
+    display: flex;
+    flex-direction: column;
+}
 .adresse .info {
     display: flex;
     margin-bottom: 40px;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
 }
 
 .adresse .info i {
@@ -2206,6 +2205,7 @@ a {
     line-height: 1.7;
     font-size: 18px;
     color: #b9b9b9;
+    flex: 1;
 }
 
 .gall img {
