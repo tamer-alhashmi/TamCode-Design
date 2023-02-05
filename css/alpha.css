@@ -339,7 +339,7 @@ a {
     content: '';
     position: absolute;
     width: 100%;
-    height: 120vh;
+    height: 100vh;
     top: -160px;
     z-index: -1;
     left: 0;
