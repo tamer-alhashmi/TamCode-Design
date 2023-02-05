@@ -1,10 +1,14 @@
 let megaImgDiv = document.querySelector(".mega-Img");
-let ovrlyMegaImg = document.createElement(megaImgDiv:befor);
 let megaImgPic = document.createElement("img");
 megaImgDiv.append(megaImgPic);
 megaImgPic.src = "../photo/megamenu.png";
-megaImgPic.style.cssText =
-  "width: 100%;";
+megaImgPic.style.cssText = "width: 100%;";
+// const observer = new ResizeObserver((entries) => {
+//   const respoWidth = entries[megaImgDiv].contentrect.width;
+//   console.log(respoWidth);
+// })
+// megaImgDiv.style.display = respoWidth < 768 ? 'none' : 'block';
+// console.log(document.body.width);
 
 
 // Landing Zone
@@ -20,7 +24,6 @@ megaImgPic.style.cssText =
 // console.log(finalColor)
 // let landing = document.querySelector(".landing");
 // landing.style.backgroundColor = finalColor;
-
 
 
 // Start Creating ScrollUp Button
@@ -68,7 +71,7 @@ window.onscroll = function () {
 
   // Scrollup btn display
   if (window.scrollY >= 600) {
-    console.log(`Scrolling Value Is ${window.scrollY}`);
+    // console.log(`Scrolling Value Is ${window.scrollY}`);
     scrBtn.style.display = "block";
   } else {
     scrBtn.style.display = "none";

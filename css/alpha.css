@@ -265,16 +265,17 @@ a {
     }
 };
 
-.header #megaLink .mega-menu .mega-Img {
-    background-image: url(../photo/megamenu.png);
-    background-size: cover;
+@media (max-width: 767)
+/* .header #megaLink .mega-menu .mega-Img { */
+    /* background-image: url(../photo/megamenu.png); */
+    /* background-size: cover;
     background-position: center;
     width: 100%;
     height: 100%;
     padding: 10px;
-    text-align: center;
+    text-align: center; */
     /* max-width: 200PX; */
-};
+/* }; */
 
 /* .mega-menu>img {
     max-width: 200px;
@@ -312,7 +313,7 @@ a {
 .header .nav-menu .mega-menu .links li::before {
     content: '';
     position: absolute;
-    background-color: var(--main-color);
+    background-color: #2195f340;
     top: 0;
     left: -100%;
     width: 100%;
@@ -355,7 +356,9 @@ a {
     top: -160px;
     z-index: -1;
     left: 0;
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    /* background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); */
+    background: linear-gradient(-45deg, #020330, #410019, #003142, #003529);
+    backdrop-filter: blur(3px);
     transform-origin: top;
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
@@ -1809,7 +1812,7 @@ a {
     padding-top: var(--main-padding-top);
     padding-bottom: var(--main-padding-bottom);
     background-size: cover;
-    background-image: url(photo/Stats\ BG.jpg);
+    background-image: url(/photo/StatsBG.jpg);
     min-height: 300px;
     transition: top var(--main-transition);
 }
@@ -1908,7 +1911,7 @@ a {
 }
 
 .discount .hav-disc {
-    background-image: url(photo/G2.jpg);
+    background-image: url(/photo/G2.jpg);
     background-size: cover;
     color: white;
     flex-basis: 50%;
@@ -1926,11 +1929,11 @@ a {
 
     0%,
     100% {
-        background-image: url(photo/gradient-navy-blue-digital-grid-wallpaper.jpg);
+        background-image: url(/photo/gradient-navy-blue-digital-grid-wallpaper.jpg);
     }
 
     50% {
-        background-image: url(photo/Stats\ BG.jpg);
+        background-image: url(/photo/StatsBG.jpg);
     }
 }
 
