@@ -228,20 +228,21 @@ a {
     padding: 30px;
     width: 100%;
     left: 0;
-    top: calc(100% + 50px);
+    top: calc(100%);
     gap: 40px;
     z-index: -1;
     opacity: 0;
     transition: top var(--main-transition);
     background-image: linear-gradient(164deg, #00141d50 75%, #00364e50);
     border-radius: 0 0 10px 10px;
+    justify-content: space-evenly;
 }
 
 .header li#megaLink:hover .mega-menu {
     display: flex;
     opacity: 1;
     z-index: 100;
-    top: calc(100% + 40px);
+    top: calc(100% + 0px);
     transition: var(--main-transition);
     backdrop-filter: blur(7px);
     transition: var(--main-transition);
@@ -258,13 +259,14 @@ a {
     }
 };
 
-.header .nav-menu .mega-menu .image {
-    margin: 10px;
+#megaLink .mega-menu .megaImg {
+    padding: 10px;
     text-align: center;
+    width: 50%;
 };
 
-.header .nav-menu .mega-menu .image img {
-    max-width: 75%;
+.header .container .nav-menu .mega-menu img {
+    max-width: 200px;
 }
 @media (max-width: 767px) {
     .mega-menu img{
@@ -378,8 +380,8 @@ a {
 }
 
 .landing .image img {
-    max-width: 100%;
-    width: 600px;
+    width: 100%;
+    max-width: 600px;
     position: relative;
     animation: up-and-down 5s linear infinite;
 }
