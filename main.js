@@ -1,3 +1,12 @@
+let megaImgDiv = document.querySelector(".mega-Img");
+
+let megaImgPic = document.createElement("img");
+megaImgDiv.append(megaImgPic);
+megaImgPic.src = "/photo/megamenu.png";
+megaImgPic.style.cssText =
+  "width: 100%;";
+
+
 // Landing Zone
 // Background color animation
 // let hexArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "F"];
@@ -11,6 +20,8 @@
 // console.log(finalColor)
 // let landing = document.querySelector(".landing");
 // landing.style.backgroundColor = finalColor;
+
+
 
 // Start Creating ScrollUp Button
 let scrBtn = document.createElement("button");
