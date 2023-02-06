@@ -265,7 +265,6 @@ a {
     }
 };
 
-@media (max-width: 767)
 /* .header #megaLink .mega-menu .mega-Img { */
     /* background-image: url(../photo/megamenu.png); */
     /* background-size: cover;
@@ -981,7 +980,7 @@ a {
     background-color: #efefef;
 }
 .card {
-    /* width: 320px; */
+    max-width: 320px;
     border-radius: 25px;
     background-color: #fff;
     margin: 20px;
@@ -1934,7 +1933,7 @@ a {
     padding-top: var(--main-padding-top);
     padding-bottom: var(--main-padding-bottom);
     background-size: cover;
-    background-image: url(/photo/StatsBG.jpg);
+    background-image: url(../photo/StatsBG.jpg);
     min-height: 300px;
     transition: top var(--main-transition);
 }
@@ -2033,7 +2032,7 @@ a {
 }
 
 .discount .hav-disc {
-    background-image: url(/photo/G2.jpg);
+    background-image: url(../photo/G2.jpg);
     background-size: cover;
     color: white;
     flex-basis: 50%;
@@ -2051,11 +2050,11 @@ a {
 
     0%,
     100% {
-        background-image: url(/photo/gradient-navy-blue-digital-grid-wallpaper.jpg);
+        background-image: url(../photo/gradient-navy-blue-digital-grid-wallpaper.jpg);
     }
 
     50% {
-        background-image: url(/photo/StatsBG.jpg);
+        background-image: url(../photo/StatsBG.jpg);
     }
 }
 
