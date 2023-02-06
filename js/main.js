@@ -1,4 +1,5 @@
 let megaImgDiv = document.querySelector(".mega-Img");
+let ovrlyMegaImg = document.createElement(megaImgDiv:befor);
 let megaImgPic = document.createElement("img");
 megaImgDiv.append(megaImgPic);
 megaImgPic.src = "photo/megamenu.png";
