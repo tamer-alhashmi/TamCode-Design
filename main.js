@@ -1,7 +1,7 @@
 let megaImgDiv = document.querySelector(".mega-Img");
 let megaImgPic = document.createElement("img");
 megaImgDiv.append(megaImgPic);
-megaImgPic.src = "../photo/megamenu.png";
+megaImgPic.src = "/photo/megamenu.png";
 megaImgPic.style.cssText = "width: 100%;";
 // const observer = new ResizeObserver((entries) => {
 //   const respoWidth = entries[megaImgDiv].contentrect.width;
