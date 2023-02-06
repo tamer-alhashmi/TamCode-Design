@@ -225,6 +225,7 @@ a {
 
 /* End Header  */
 
+
 /* Start Mega Menu */
 .header .nav-menu .mega-menu {
     display: none;
@@ -323,7 +324,9 @@ a {
     .header .nav-menu .mega-menu .links a{
         font-size: 16px;
     };
-
+    .header .nav-menu .mega-menu {
+    
+}
 }
 
 .header .nav-menu .mega-menu .links a i {
