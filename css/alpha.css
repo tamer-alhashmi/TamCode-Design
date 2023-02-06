@@ -966,7 +966,12 @@ a {
 
 /* Start testimonials 
 /* //Responsive Card Slider */
-
+.slide-container {
+    max-width: 1120px;
+    width: 100%;
+    background-color: gray;
+    padding: 40px;
+}
 .slide-content {
     margin: 0 40px;
     position: relative;
@@ -976,7 +981,7 @@ a {
     background-color: #efefef;
 }
 .card {
-    width: 320px;
+    /* width: 320px; */
     border-radius: 25px;
     background-color: #fff;
     margin: 20px;
@@ -988,10 +993,12 @@ a {
     display: flex;
     align-items: center;
     flex-direction: column;
+    justify-content: center;
 }
 .image-content {
     position: relative;
-    row-gap: 5px;
+    /* row-gap: 5px;
+    padding: 25px 0; */
 }
 .overlay {
     position: absolute;
@@ -1009,7 +1016,11 @@ a {
     bottom: -40px;
     height: 40px;
     width: 40px;
-    background-color: red;
+    background-color: #4070f4;
+}
+.overlay::after {
+    border-radius: 0 25px 0 0;
+    background-color: #fff;
 }
 
 .card-image {
@@ -1019,6 +1030,7 @@ a {
     border-radius: 50%;
     background-color: #FFF;
     padding: 3px;
+    margin: 10px;
 }
 .card-image .card-img {
     height: 100%;
@@ -1029,13 +1041,16 @@ a {
 }
 .name {
     font-size: 18px;
-    font-weight: 500;
+    font-weight: 700;
     color: #333;
+    margin-top: 10px;
 }
 .description {
     font-size: 14px;
     color: #707070;
     text-align: center;
+    line-height: 1.7;
+    margin-top: 10px;
 }
 .button {
     border: none;
