@@ -2,7 +2,7 @@ let megaImgDiv = document.querySelector(".mega-Img");
 let ovrlyMegaImg = document.createElement(megaImgDiv:befor);
 let megaImgPic = document.createElement("img");
 megaImgDiv.append(megaImgPic);
-megaImgPic.src = "../photo/megamenu.png";
+megaImgPic.src = "photo/megamenu.png";
 megaImgPic.style.cssText = "width: 100%;";
 // const observer = new ResizeObserver((entries) => {
 //   const respoWidth = entries[megaImgDiv].contentrect.width;
@@ -10,7 +10,6 @@ megaImgPic.style.cssText = "width: 100%;";
 // })
 // megaImgDiv.style.display = respoWidth < 768 ? 'none' : 'block';
 // console.log(document.body.width);
-
 
 // Landing Zone
 // Background color animation
@@ -25,7 +24,6 @@ megaImgPic.style.cssText = "width: 100%;";
 // console.log(finalColor)
 // let landing = document.querySelector(".landing");
 // landing.style.backgroundColor = finalColor;
-
 
 // Start Creating ScrollUp Button
 let scrBtn = document.createElement("button");
@@ -112,6 +110,7 @@ let counter = setInterval(() => {
   let minutes = Math.floor((dateDiff % (1000 * 60 * 60)) / (1000 * 60));
   let secondes = Math.floor((dateDiff % (1000 * 60)) / 1000);
 
+
   document.querySelector(".days").innerHTML = days < 10 ? `0${days}` : days;
 
   document.querySelector(".hours").innerHTML = hours < 10 ? `0${hours}` : hours;
@@ -122,3 +121,22 @@ let counter = setInterval(() => {
   document.querySelector(".secondes").innerHTML =
     secondes < 10 ? `0${secondes}` : secondes;
 }, 1000);
+
+// Swiper Start
+let swiper = new Swiper(".slide-content", {
+  slidesPerView: 3,
+  spaceBetween: 25,
+  // slidesPerGroup: 3,
+  loop: true,
+  fade: true,
+  grabCursor: true,
+  centerSlide: true,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
