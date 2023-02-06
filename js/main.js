@@ -1,5 +1,4 @@
 let megaImgDiv = document.querySelector(".mega-Img");
-let ovrlyMegaImg = document.createElement(megaImgDiv:befor);
 let megaImgPic = document.createElement("img");
 megaImgDiv.append(megaImgPic);
 megaImgPic.src = "photo/megamenu.png";
@@ -109,7 +108,6 @@ let counter = setInterval(() => {
   let hours = Math.floor((dateDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   let minutes = Math.floor((dateDiff % (1000 * 60 * 60)) / (1000 * 60));
   let secondes = Math.floor((dateDiff % (1000 * 60)) / 1000);
-
 
   document.querySelector(".days").innerHTML = days < 10 ? `0${days}` : days;
 
