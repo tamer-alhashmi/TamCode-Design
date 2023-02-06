@@ -957,8 +957,115 @@ a {
 /* End More Buttom */
 /* End features */
 
-/* Start Tetimonials */
-.Tetimonials {
+
+
+
+
+
+
+
+/* Start testimonials 
+/* //Responsive Card Slider */
+
+.slide-content {
+    margin: 0 40px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #efefef;
+}
+.card {
+    width: 320px;
+    border-radius: 25px;
+    background-color: #fff;
+    margin: 20px;
+}
+
+.image-content,
+.card-contant {
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.image-content {
+    position: relative;
+    row-gap: 5px;
+}
+.overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #4070f4;
+    border-radius: 25px 25px 0 25px;
+}
+
+.overlay::before,
+.overlay::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -40px;
+    height: 40px;
+    width: 40px;
+    background-color: red;
+}
+
+.card-image {
+    position: relative;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    background-color: #FFF;
+    padding: 3px;
+}
+.card-image .card-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #4070f4;
+}
+.name {
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+}
+.description {
+    font-size: 14px;
+    color: #707070;
+    text-align: center;
+}
+.button {
+    border: none;
+    font-size: 16px;
+    color: #FFF;
+    padding: 8PX 16PX;
+    background-color: #4070f4;
+    border-radius: 6px;
+    margin: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease
+}
+.button:hover {
+    background-color: #265df2;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+.testimonials {
     padding-top: var(--main-padding-top);
     padding-bottom: var(--main-padding-bottom);
     background-color: var(--section-background);
@@ -966,13 +1073,13 @@ a {
     position: relative;
 }
 
-.Tetimonials .container {
+.testimonials .container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 40px;
 }
 
-.Tetimonials .box {
+.testimonials .box {
     position: relative;
     background-color: white;
     box-shadow: var(--box-shadow);
@@ -980,7 +1087,7 @@ a {
     border-radius: 6px;
 }
 
-.Tetimonials .box img {
+.testimonials .box img {
     position: absolute;
     top: -50px;
     right: 10px;
@@ -989,33 +1096,33 @@ a {
     border: 10px solid var(--section-background);
 }
 
-.Tetimonials .box h3 {
+.testimonials .box h3 {
     padding-bottom: 10px;
 }
 
-.Tetimonials .box span {
+.testimonials .box span {
     color: #777;
 }
 
-.Tetimonials .box .rate {
+.testimonials .box .rate {
     padding-top: 10px;
     padding-bottom: 10px;
     color: rgb(206, 205, 205);
 }
 
-.Tetimonials .box .rate .filled {
+.testimonials .box .rate .filled {
     color: rgb(255, 166, 0);
 }
 
 
 
-.Tetimonials .box p {
+.testimonials .box p {
     color: #666;
     line-height: 1.7;
     font-weight: 400;
 }
 
-/* End Tetimonials */
+ End testimonials */
 
 /* Start Team Mmembers */
 .team {
