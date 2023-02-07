@@ -50,6 +50,7 @@ html {
 
 /* End Variables */
 
+
 /* Start Globle Rules  */
 * {
     -webkit-box-sizing: border-box;
@@ -934,8 +935,18 @@ a {
     justify-content: center;
     align-items: center;
 }
+.swiper-slide {
+    width: 80%;
+}
 
-.slide-container {
+.swiper-slide:nth-child(2n) {
+    width: 60%;
+}
+
+.swiper-slide:nth-child(3n) {
+    width: 40%;
+}
+.testimonials .container {
     max-width: 1120px;
     width: 100%;
     padding: 40px 0;
@@ -1039,7 +1050,7 @@ a {
     background-color: #265df2;
 }
 
-.swiper-navBtn {
+/* .swiper-navBtn {
     color: #6e93f7;
     transform: color 0.3s ease ;
 }
@@ -1055,7 +1066,7 @@ a {
 }
 .swiper-button-prev {
     left: 0;
-}
+} */
 
 .swiper-pagination-bullet {
     background-color: #6e93f7;
