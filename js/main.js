@@ -59,7 +59,7 @@ window.onscroll = function () {
     });
   }
 
-  // Start ourskills number animat
+  // Start stats number animat
   if (window.scrollY >= statSec.offsetTop - 20) {
     if (!started) {
       nums.forEach((num) => startCount(num));
