@@ -45,7 +45,7 @@ window.addEventListener("scroll", function () {
 
 // Our Skills animat
 let skillsSction = document.querySelector(".our-skills");
-let skillSpans = document.querySelectorAll(".skills-bar span");
+let skillSpans = document.querySelectorAll(".skills-bar>span");
 
 let statSec = document.querySelector(".stats");
 let nums = document.querySelectorAll("span.records-count");
@@ -94,7 +94,7 @@ function startCount(el) {
   }, 2000 / goal);
 }
 
-// Event Section Animation
+// Event Section Animation Start
 
 let countDownDate = new Date("Nov 21, 2023 23:59:59").getTime();
 // console.log(countDownDate);
@@ -119,6 +119,7 @@ let counter = setInterval(() => {
   document.querySelector(".secondes").innerHTML =
     secondes < 10 ? `0${secondes}` : secondes;
 }, 1000);
+// Event Section Animation End
 
 // Swiper Start
 let swiper = new Swiper(".slide-content", {
