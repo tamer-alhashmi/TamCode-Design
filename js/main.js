@@ -73,6 +73,7 @@ window.onscroll = function () {
   if (window.scrollY >= 600) {
     // console.log(`Scrolling Value Is ${window.scrollY}`);
     scrBtn.style.display = "block";
+
   } else {
     scrBtn.style.display = "none";
   }
@@ -163,4 +164,12 @@ let counter = setInterval(() => {
         el: ".swiper-pagination",
         clickable: true,
       },
+    });
+
+
+    Swal.fire({
+      title: "Error!",
+      text: "Do you want to continue",
+      icon: "error",
+      confirmButtonText: "Cool",
     });
