@@ -5,26 +5,6 @@ let megaImgPic = document.createElement("img");
 megaImgDiv.append(megaImgPic);
 megaImgPic.src = "photo/megamenu.png";
 megaImgPic.style.cssText = "width: 100%;";
-// const observer = new ResizeObserver((entries) => {
-//   const respoWidth = entries[megaImgDiv].contentrect.width;
-//   console.log(respoWidth);
-// })
-// megaImgDiv.style.display = respoWidth < 768 ? 'none' : 'block';
-// console.log(document.body.width);
-
-// Landing Zone
-// Background color animation
-// let hexArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "F"];
-// let colorParts = [];
-
-// for (i = 0; i < 6; i++) {
-//   colorParts.push(hexArray[Math.floor(Math.random() * hexArray.length)]);
-// }
-// ;
-// let finalColor = `#${colorParts.join("")}`;
-// console.log(finalColor)
-// let landing = document.querySelector(".landing");
-// landing.style.backgroundColor = finalColor;
 
 // Start Creating ScrollUp Button
 let scrBtn = document.createElement("button");
@@ -124,9 +104,6 @@ let counter = setInterval(() => {
 }, 1000);
 // Event Section Animation End
 
-
-
-
 // Swiper Start
 // let swiper = new swiper(".mySwiper", {
 //   slidesPerView: "auto",
@@ -157,6 +134,8 @@ let counter = setInterval(() => {
 //     },
 //   },
 // });
+
+
     var swiper = new Swiper(".mySwiper", {
       slidesPerView: "auto",
       spaceBetween: 30,
@@ -172,4 +151,14 @@ let counter = setInterval(() => {
       text: "Do you want to continue",
       icon: "error",
       confirmButtonText: "Cool",
+    });
+
+    // Videos Section
+    let vidList = document.querySelectorAll(".videos .vid-menu ul li");
+    let vidZone = document.querySelector(".vid-zone video source");
+
+    vidList.forEach (function(li){
+      li.addEventListener("click", (e) =>{
+        console.log("yes");
+      })
     });
