@@ -104,55 +104,6 @@ let counter = setInterval(() => {
 }, 1000);
 // Event Section Animation End
 
-// Swiper Start
-// let swiper = new swiper(".mySwiper", {
-//   slidesPerView: "auto",
-//   spaceBetween: 25,
-//   // slidesPerGroup: 3,
-//   // loop: true,
-//   // centerSlide: "true",
-//   fade: "true",
-//   grabCursor: "true",
-//   pagination: {
-//     el: ".swiper-pagination",
-//     clickable: true,
-//     dynamicBullets: true,
-//   },
-//   // navigation: {
-//   //   nextEl: ".swiper-button-next",
-//   //   prevEl: ".swiper-button-prev",
-//   // },
-//   breakpoints: {
-//     0: {
-//       slidesPerView: 1,
-//     },
-//     520: {
-//       slidesPerView: 2,
-//     },
-//     950: {
-//       slidesPerView: 3,
-//     },
-//   },
-// });
-
-
-    var swiper = new Swiper(".mySwiper", {
-      slidesPerView: "auto",
-      spaceBetween: 30,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-    });
-
-
-    Swal.fire({
-      title: "Error!",
-      text: "Do you want to continue",
-      icon: "error",
-      confirmButtonText: "Cool",
-    });
-
     // Videos Section
     let vidList = document.querySelectorAll(".videos .vid-menu ul li");
     let vidZone = document.querySelector(".vid-zone video source");
@@ -162,3 +113,15 @@ let counter = setInterval(() => {
         console.log("yes");
       })
     });
+
+// scroller
+let scroller = document.querySelector(".scroller");
+let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
+console.log(scroller);
+console.log(height);
+
+window.addEventListener("scroll", ()=> {
+  let scrollTop = document.documentElement.scrollTop;
+  scroller.style.width = `${(scrollTop / height) * 100}%`;
+})
