@@ -1,5 +1,12 @@
 /* Start Variables */
 :root {
+    --font-size-sm: clamp(0.8rem, 0.17vw + 0.76rem, 0.89rem);
+    --font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
+    --font-size-md: clamp(1.25rem, 0.61vw + 1.1rem, 1.58rem);
+    --font-size-lg: clamp(1.56rem, 1vw + 1.31rem, 2.11rem);
+    --font-size-xl: clamp(1.95rem, 1.56vw + 1.56rem, 2.81rem);
+    --font-size-xxl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
+    --font-size-xxxl: clamp(3.05rem, 3.54vw + 2.17rem, 5rem);
     --main-color: #2196f3;
     --main-color-alt: #1787e0;
     --main-opacity-color: #2195f309;
@@ -15,6 +22,7 @@
 
 body {
     font-family: "Cairo", sans-serif;
+    font-size: var(--font-size-base);
 }
 
 html {
@@ -359,8 +367,7 @@ a {
 }
 
 .landing .image img {
-    width: 100%;
-    max-width: 600px;
+    width: min(320px, 80%);
     position: relative;
     animation: up-and-down 5s linear infinite;
 }
@@ -371,29 +378,29 @@ a {
         order: -1;
         display: flex;
         margin-top: 50px;
+        justify-content: center;
     }
 }
 
 .landing .text {
     flex: 1;
+    display: flex;
+    align-items: center;
 }
 
-@media (max-width:767px) {
+@media (max-width:768px) {
     .landing .text {
         text-align: center;
-        margin-top: 100px;
+        flex-direction: column;
+        justify-content: center;
     }
 }
 
-@media (max-width:991px) {
-    .landing .text {
-        text-align: center;
-    }
-}
+
 
 .landing .text h1 {
     color: white;
-    font-size: 40px;
+    font-size: var(--font-size-lg);
     margin: 0;
 }
 
@@ -406,7 +413,7 @@ a {
 .landing .text p {
     padding: 5px 0 0;
     max-width: 500px;
-    font-size: 23px;
+    font-size: var(--font-size-md);
     line-height: 1.7;
     color: white;
     margin: 25px auto;
