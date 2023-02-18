@@ -50,7 +50,7 @@ html {
     outline: 3px solid var(--main-color);    
 }
 :focus:not(:focus-visible){
-    outline: none;
+    outline-color: transparent;
 }
 :focus-visible{
         outline: 3px solid var(--main-color);
@@ -89,8 +89,9 @@ a {
 }
 /* Start Container Style  */
 .container {
-    padding-left: 15px;
-    padding-right: 15px;
+    /* padding-left: 15px;
+    padding-right: 15px; */
+    padding: 0 8svw;
     margin-left: auto;
     margin-right: auto;
 
@@ -352,19 +353,10 @@ a {
     height: calc(100svh - 72px);
     display: flex;
     align-items: center;
-    padding: 20px;
-    /* text-align: center; */
+    justify-content: center;
 }
-
-@media (max-width:991px) {
-    .landing .container {
-        flex-direction: column;
-        justify-content: center;
-    }
-}
-
 .landing .image img {
-    width: min(320px, 80%);
+    max-width: 320px;
     position: relative;
     animation: up-and-down 5s linear infinite;
 }
@@ -377,17 +369,10 @@ a {
         margin-top: 50px;
         justify-content: center;
     }
-}
-
-.landing .text {
-    /* flex: 1; */
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-}
-
-@media (max-width:768px) {
+    .landing .container {
+        flex-direction: column;
+        justify-content: center;
+    }
     .landing .text {
         text-align: center;
         flex-direction: column;
@@ -395,18 +380,15 @@ a {
     }
 }
 
-
-
+.landing .text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
 .landing .text h1 {
     color: white;
     font-size: var(--font-size-lg);
-    margin: 0;
-}
-
-@media (max-width:767px) {
-    .landing .text h1 {
-        font-size: 30px;
-    }
+    /* margin: 0; */
 }
 
 .landing .text p {
@@ -415,7 +397,7 @@ a {
     font-size: var(--font-size-md);
     line-height: 1.7;
     color: white;
-    margin: 25px auto;
+    margin-top: 20px ;
 }
 
 @media (max-width:767px) {
@@ -1430,11 +1412,12 @@ a {
 }
 
 .our-skills .container img {
-    max-width: 100%;
+    width: min(320px, 100%);
 }
 
 .our-skills .lang-area {
     flex: 1;
+    max-width: 100%;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -1460,7 +1443,7 @@ a {
     height: 30px;
     position: relative;
     transition: width 0.5s linear;
-        z-index: 5;
+    z-index: 5;
 }
 .skills-bar span.number {
     text-align: center;
@@ -1514,6 +1497,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0 10svw;
 }
 
 @media (max-width: 1199px) {
@@ -1609,7 +1593,7 @@ a {
 
 
 .how-works .works-area .data p {
-    max-width: 400px;
+    max-width: 320px;
     margin: 10px 0 0;
     color: #666;
     line-height: 2;
@@ -1634,7 +1618,7 @@ a {
 }
 
 .events .latest-eve img {
-    max-width: 350px;
+    max-width: 320px;
 }
 
 
@@ -1783,7 +1767,7 @@ a {
     padding: 20px 10px;
     background-color: white;
     flex: 1;
-    max-width: 400px;
+    max-width: 320px;
     box-shadow: 0 12px 20px 0 rgb(0 0 0 / 13%), 0 2px 4px 0 rgb(0 0 0 / 12%);
 }
 
