@@ -96,11 +96,7 @@ a {
 
 }
 
-@media (min-width: 1200px) {
-    .container {
-        width: 1170px;
-    }
-} 
+
 
 /* End Container Style  */
 .scroller {
@@ -353,16 +349,17 @@ a {
 }
 
 .landing .container {
-    height: calc(100vh - 72px);
+    height: calc(100svh - 72px);
     display: flex;
     align-items: center;
     padding: 20px;
-    text-align: center;
+    /* text-align: center; */
 }
 
 @media (max-width:991px) {
     .landing .container {
         flex-direction: column;
+        justify-content: center;
     }
 }
 
@@ -383,9 +380,11 @@ a {
 }
 
 .landing .text {
-    flex: 1;
+    /* flex: 1; */
     display: flex;
     align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
 
 @media (max-width:768px) {
