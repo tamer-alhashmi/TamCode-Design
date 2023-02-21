@@ -1,11 +1,3 @@
-
-
-
-
-
-
-
-
 let megaImgDiv = document.querySelector(".mega-Img");
 let megaImgPic = document.createElement("img");
 megaImgDiv.append(megaImgPic);
@@ -131,3 +123,20 @@ window.addEventListener("scroll", ()=> {
   let scrollTop = document.documentElement.scrollTop;
   scroller.style.width = `${(scrollTop / height) * 100}%`;
 })
+
+
+// Start TimeLine
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    console.log(entry);
+    if (entry.isIntersecting){
+      entry.target.classList.add('show')
+    } else {
+      entry.target.classList.remove('show')
+    }
+  })
+});
+const hiddenElement = document.querySelectorAll('.hidden');
+hiddenElement.forEach((el) => observer.observe(el));
+// End TimeLine

@@ -689,21 +689,6 @@ a {
 /* End Articles */
 /* Start Gallery */
 
-.zegzag::after {
-    content: '';
-    position: absolute;
-    height: 30px;
-    width: 100%;
-    background-image: linear-gradient(135deg, white 25%, transparent 25%), linear-gradient(225deg, white 25%, transparent 25%);
-    top: 0;
-    left: 0;
-    background-size: 30px 30px;
-    z-index: 1;
-}
-
-.zegzag {
-    position: relative;
-}
 
 .gallery {
     background-color: #ececec;
@@ -1399,6 +1384,7 @@ a {
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     justify-content: center;
     align-items: center;
+    /* place-items: center; */
 }
 
 @media (max-width: 991px) {
@@ -1414,7 +1400,7 @@ a {
     text-align: center;
 }
 .our-skills .container img {
-    width: max(320px, 2vw);
+    width: max(120px, 2vw);
 }
 
 .our-skills .lang-area {
@@ -1746,8 +1732,8 @@ a {
 }
 
 .price .container {
-    display: flex;
-    justify-content: center;
+    display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     align-items: center;
     gap: 40px;
 }
@@ -2367,3 +2353,58 @@ Do not hesitatr to leave your comments. */
 
 /* Tamer Elhashmi
 admin@elhashmy-luxury.com */
+
+
+/* // Start TimeLine */
+
+body {
+    background-image: linear-gradient(245deg, #212121, #21212160, #212121);
+}
+
+.features .box .feat-text,
+.features .box .feat-text p,
+.articles .container .art-box p,
+body {
+    color: white;
+}
+.hidden {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-100%);
+    transition: all 1s;
+}
+
+.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+
+@media(prefers-reduced-motion) {
+    hidden {
+        transition: none;
+    }
+}
+
+.landing {
+    display: none !important;
+}
+.gallery {
+    background-color: #21212180;
+}
+
+.gallery .image:nth-child(2) {
+    transition-delay: 200ms;
+}
+.gallery .image:nth-child(3) {
+    transition-delay: 400ms;
+}
+.gallery .image:nth-child(4) {
+    transition-delay: 600ms;
+}
+.gallery .image:nth-child(5) {
+    transition-delay: 800ms;
+}
+.gallery .image:nth-child(6) {
+    transition-delay: 100ms;
+}
