@@ -97,7 +97,9 @@ a {
 
 }
 
-
+.section {
+    min-height: 50vh;
+}
 
 /* End Container Style  */
 .scroller {
@@ -461,7 +463,7 @@ a {
     position: relative;
     width: 100%;
     height: 80px;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: baseline;
     font-size: 40px;
@@ -1393,26 +1395,26 @@ a {
 }
 
 .our-skills .container {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    justify-content: center;
+    align-items: center;
 }
 
 @media (max-width: 991px) {
     .our-skills .container {
         flex-direction: column;
     }
-
-    .our-skills .container .image {
-        text-align: center;
-    }
-
     .our-skills .lang-area {
         padding: 30px;
     }
 }
 
+.our-skills .container .image {
+    text-align: center;
+}
 .our-skills .container img {
-    width: min(320px, 100%);
+    width: max(320px, 2vw);
 }
 
 .our-skills .lang-area {
@@ -2013,7 +2015,7 @@ a {
 
 .stats .container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
 }
 
@@ -2230,7 +2232,7 @@ a {
 
 .footer .container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
 }
 

@@ -1,5 +1,11 @@
 
 
+
+
+
+
+
+
 let megaImgDiv = document.querySelector(".mega-Img");
 let megaImgPic = document.createElement("img");
 megaImgDiv.append(megaImgPic);
