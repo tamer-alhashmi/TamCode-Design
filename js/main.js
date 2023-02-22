@@ -136,20 +136,20 @@ const observer = new IntersectionObserver((entries) => {
         span.style.width = span.dataset.width;
       });
 
-        if (window.scrollY >= statSec.offsetTop - 20) {
-          if (!started) {
-            nums.forEach((num) => startCount(num));
-          }
-          started = true;
+      if (window.scrollY >= statSec.offsetTop - 20) {
+        if (!started) {
+          nums.forEach((num) => startCount(num));
         }
+        started = true;
+      }
 
-        // Scrollup btn display
-        if (window.scrollY >= 600) {
-          // console.log(`Scrolling Value Is ${window.scrollY}`);
-          scrBtn.style.display = "block";
-        } else {
-          scrBtn.style.display = "none";
-        }
+      // Scrollup btn display
+      if (window.scrollY >= 600) {
+        // console.log(`Scrolling Value Is ${window.scrollY}`);
+        scrBtn.style.display = "block";
+      } else {
+        scrBtn.style.display = "none";
+      }
     } else {
       entry.target.classList.remove("show");
     }
@@ -159,6 +159,44 @@ const observer = new IntersectionObserver((entries) => {
 const hiddenElement = document.querySelectorAll(".hidden");
 hiddenElement.forEach((el) => observer.observe(el));
 
-const hiddenRightElement = document.querySelectorAll(".hidden-right");
+const hiddenRightElement = document.querySelectorAll(".hidden-top");
 hiddenRightElement.forEach((el) => observer.observe(el));
+
+// parrallTitlePixl function
+
+const parrallTitle = document.querySelectorAll(".parrallTitle");
+
+window.addEventListener("scroll", () => {
+  // const sectinoScrollable =
+  //   document.documentElement.scrollHeight - window.innerHeight;
+  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+  const scrolled = window.scrollY;
+  // console.log(scrolled);
+  // console.log(scrollable);
+
+  // if (Math.ceil(scrolled) === scrollable) {
+  // }
+});
 // End TimeLine
+
+const statHeight2 = window.scrollY - statSec.scrollHeight;
+const statHeight3 = window.innerHeight - statSec.scrollHeight;
+const statHeight4 =
+  document.documentElement.scrollHeight - statSec.scrollHeight;
+const sectinoScrollable =
+  document.documentElement.scrollHeight - window.innerHeight;
+
+const offSet = statSec.offsetTop;
+const statHeight = statSec.scrollHeight;
+const totalHeight = offSet + statSec.scrollHeight;
+
+console.log(offSet);
+console.log(statHeight);
+console.log(totalHeight);
+// console.log(statHeight2);
+// console.log(statHeight3);
+// console.log(statHeight4);
+// console.log(sectinoScrollable);
+window.addEventListener("scroll", (e)=> {
+  // const e = window.scrollY;
+})
