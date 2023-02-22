@@ -14,6 +14,7 @@
     --main-padding-top: 100px;
     --main-padding-bottom: 100px;
     --section-background: #ececec;
+    --parall-shadow: 0 25px 35px rgba(0, 0, 0, 0.1);
     --box-shadow: 0 0 10px #00000034;
     --box-deep-shadow: 0 12px 20px 0 rgb(0 0 0 / 13%), 0 2px 4px 0 rgb(0 0 0 / 12%);
     --hover-glow-color: #d9eaf817;
@@ -115,7 +116,6 @@ a {
 /* Start Header  */
 .header {
     background-color: transparent;
-    /* position: relative; */
     top: 0;
     left: 0;
     padding: 40px 100px;
@@ -127,7 +127,7 @@ a {
 
 .sticky {
     position: sticky;
-    background-color: #00213061;
+    background-color: var(--main-color-alt);
     backdrop-filter: blur(3px);
     padding: 0 100px;
     z-index: 100000;
@@ -1642,8 +1642,9 @@ a {
     flex-direction: column;
     border: 1px solid #d4d4d4;
     text-align: center;
-    width: 65px;
+    height: 100%;
     border-radius: 7px;
+    padding: 10px;
 }
 
 .latest-eve .time .timer-box:hover {
@@ -1659,11 +1660,11 @@ a {
     border-bottom: 1px solid #d4d4d4;
     padding: 10px 0;
     font-weight: bold;
-    font-size: 30px;
+    font-size: var(--font-size-xl);
 }
 
 .latest-eve .time .timer-box span:last-child {
-    font-size: 12px;
+    font-size: var(--font-size-md);
     padding: 10px;
 }
 
@@ -2452,10 +2453,12 @@ body {
 .services .box:nth-child(6) {
     transition-delay: 1000ms;
 }
-.team .box:nth-child(7){
+.team .box:nth-child(7),
+.articles .art-box:nth-child(7){
     transition-delay: 1200ms;
 }
-.team .box:nth-child(8){
+.team .box:nth-child(8),
+.articles .art-box:nth-child(8){
     transition-delay: 1400ms;
 }
 
@@ -2579,4 +2582,12 @@ body {
 .how-works,
 .how-works .works-area {
     background-color: transparent;
+}
+
+.parrallTitle {
+    font-size: var(--font-size-xxl);
+    margin-left: 200px;
+    color: white;
+    /* z-index: 10; */
+    margin-bottom: 20px;
 }
