@@ -31,32 +31,6 @@ let statSec = document.querySelector(".stats");
 let nums = document.querySelectorAll("span.records-count");
 let started = false;
 
-window.onscroll = function () {
-  // Skills section animate width
-  if (window.scrollY >= skillsSction.offsetTop - 200) {
-    skillSpans.forEach((span) => {
-      span.style.width = span.dataset.width;
-    });
-  }
-
-  // Start stats number animat
-  if (window.scrollY >= statSec.offsetTop - 20) {
-    if (!started) {
-      nums.forEach((num) => startCount(num));
-    }
-    started = true;
-  }
-
-  // Scrollup btn display
-  if (window.scrollY >= 600) {
-    // console.log(`Scrolling Value Is ${window.scrollY}`);
-    scrBtn.style.display = "block";
-
-  } else {
-    scrBtn.style.display = "none";
-  }
-};
-
 scrBtn.onclick = function () {
   window.scrollTo({
     left: 0,
@@ -102,41 +76,64 @@ let counter = setInterval(() => {
 }, 1000);
 // Event Section Animation End
 
-    // Videos Section
-    let vidList = document.querySelectorAll(".videos .vid-menu ul li");
-    let vidZone = document.querySelector(".vid-zone video source");
+// Videos Section
+let vidList = document.querySelectorAll(".videos .vid-menu ul li");
+let vidZone = document.querySelector(".vid-zone video source");
 
-    vidList.forEach (function(li){
-      li.addEventListener("click", (e) =>{
-        console.log("yes");
-      })
-    });
+vidList.forEach(function (li) {
+  li.addEventListener("click", (e) => {
+    console.log("yes");
+  });
+});
 
 // scroller
 let scroller = document.querySelector(".scroller");
-let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+let height =
+  document.documentElement.scrollHeight - document.documentElement.clientHeight;
 
-console.log(scroller);
-console.log(height);
+// console.log(scroller);
+// console.log(height);
 
-window.addEventListener("scroll", ()=> {
+window.addEventListener("scroll", () => {
   let scrollTop = document.documentElement.scrollTop;
   scroller.style.width = `${(scrollTop / height) * 100}%`;
-})
-
+});
 
 // Start TimeLine
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
-    console.log(entry);
-    if (entry.isIntersecting){
-      entry.target.classList.add('show')
+    // console.log(entry);
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+
+      skillSpans.forEach((span) => {
+        span.style.width = span.dataset.width;
+      });
+
+        if (window.scrollY >= statSec.offsetTop - 20) {
+          if (!started) {
+            nums.forEach((num) => startCount(num));
+          }
+          started = true;
+        }
+
+        // Scrollup btn display
+        if (window.scrollY >= 600) {
+          // console.log(`Scrolling Value Is ${window.scrollY}`);
+          scrBtn.style.display = "block";
+        } else {
+          scrBtn.style.display = "none";
+        }
     } else {
-      entry.target.classList.remove('show')
+      entry.target.classList.remove("show");
     }
-  })
+  });
 });
-const hiddenElement = document.querySelectorAll('.hidden');
+
+const hiddenElement = document.querySelectorAll(".hidden");
 hiddenElement.forEach((el) => observer.observe(el));
+
+const hiddenRightElement = document.querySelectorAll(".hidden-right");
+hiddenRightElement.forEach((el) => observer.observe(el));
 // End TimeLine
