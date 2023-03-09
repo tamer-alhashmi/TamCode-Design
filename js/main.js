@@ -1,3 +1,69 @@
+//  Start Landing Slider
+
+const sliderImages = Array.from(
+  document.querySelectorAll(".sliderContainer div")
+);
+const sliderCount = sliderImages.length;
+currentSlide = 1;
+
+let prevButton = document.getElementById("prevButton");
+let nextButton = document.getElementById("nextButton");
+
+prevButton.onclick = prevSlide;
+nextButton.onclick = nextSlide;
+theChecker();
+
+function nextSlide() {
+  if (nextButton.classList.contains("disabled")) {
+    return false;
+  } else {
+    currentSlide++;
+    theChecker();
+  }
+}
+
+function prevSlide() {
+  if (prevButton.classList.contains("disabled")) {
+    return false;
+  } else {
+    currentSlide--;
+    theChecker();
+  }
+}
+
+// Creating TheChecker
+function theChecker() {
+  // currentSlide = 1;
+  setInterval(() => {
+    removeAllActive();
+    sliderImages[currentSlide - 1].classList.add("active");
+
+    if (currentSlide == 1) {
+      prevButton.classList.add("disabled");
+    } else {
+      prevButton.classList.remove("disabled");
+    }
+    if (currentSlide == sliderCount) {
+      nextButton.classList.add("disabled");
+    } else {
+      nextButton.classList.remove("disabled");
+    }
+    currentSlide++;
+    if (currentSlide > sliderCount) {
+      currentSlide = 1;
+    }
+  }, 7000);
+}
+function removeAllActive() {
+  sliderImages.forEach(function (img) {
+    img.classList.remove("active");
+  });
+}
+
+console.log(sliderImages);
+
+//  End Landing Slider
+
 let megaImgDiv = document.querySelector(".mega-Img");
 let megaImgPic = document.createElement("img");
 megaImgDiv.append(megaImgPic);
@@ -30,31 +96,6 @@ let skillSpans = document.querySelectorAll(".skills-bar>span");
 let statSec = document.querySelector(".stats");
 let nums = document.querySelectorAll("span.records-count");
 let started = false;
-
-// window.onscroll = function () {
-//   // Skills section animate width
-//   if (window.scrollY >= skillsSction.offsetTop - 200) {
-//     // skillSpans.forEach((span) => {
-//     //   span.style.width = span.dataset.width;
-//     // });
-//   }
-
-//   // Start stats number animat
-//   // if (window.scrollY >= statSec.offsetTop - 20) {
-//   //   if (!started) {
-//   //     nums.forEach((num) => startCount(num));
-//   //   }
-//   //   started = true;
-//   // }
-
-//   // // Scrollup btn display
-//   // if (window.scrollY >= 600) {
-//   //   // console.log(`Scrolling Value Is ${window.scrollY}`);
-//   //   scrBtn.style.display = "block";
-//   // } else {
-//   //   scrBtn.style.display = "none";
-//   // }
-// };
 
 scrBtn.onclick = function () {
   window.scrollTo({
@@ -197,6 +238,6 @@ console.log(totalHeight);
 // console.log(statHeight3);
 // console.log(statHeight4);
 // console.log(sectinoScrollable);
-window.addEventListener("scroll", (e)=> {
+window.addEventListener("scroll", (e) => {
   // const e = window.scrollY;
-})
+});
