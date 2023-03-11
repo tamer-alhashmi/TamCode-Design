@@ -1,68 +1,98 @@
 //  Start Landing Slider
 
-const sliderImages = Array.from(
-  document.querySelectorAll(".sliderContainer div")
+let sliderImages = Array.from(
+  document.querySelectorAll(".sliderContainer .sliderImage")
 );
-const sliderCount = sliderImages.length;
+
+let sliderCount = sliderImages.length;
+
+let sliderHeading = Array.from(document.querySelectorAll(".sliderText h2"));
+let sliderPara = Array.from(document.querySelectorAll(".sliderText p"));
+
+
 currentSlide = 1;
 
-let prevButton = document.getElementById("prevButton");
-let nextButton = document.getElementById("nextButton");
 
-prevButton.onclick = prevSlide;
-nextButton.onclick = nextSlide;
+// Creating ul and li
+let paginationelement = document.createElement("ul");
+paginationelement.setAttribute("id", "pagination-ul");
+
+for (let i = 1; i <= sliderCount; i++) {
+  let paginationItem = document.createElement("li");
+  paginationItem.setAttribute("data-index", i);
+  // paginationItem.appendChild(document.createTextNode(i));
+  paginationelement.appendChild(paginationItem);
+}
+document.getElementById("indicators").appendChild(paginationelement);
+
+
+let paginationBullets = Array.from(
+  document.querySelectorAll("#pagination-ul li")
+);
+
+for (let i = 0; i < paginationBullets.length; i++) {
+  paginationBullets[i].onclick = function () {
+    currentSlide = parseInt(this.getAttribute("data-index"));
+    theChecker();
+  };
+}
+
+let paginationCreatedUl = document.getElementById("pagination-ul");
+
 theChecker();
 
-function nextSlide() {
-  if (nextButton.classList.contains("disabled")) {
-    return false;
-  } else {
-    currentSlide++;
-    theChecker();
-  }
-}
-
-function prevSlide() {
-  if (prevButton.classList.contains("disabled")) {
-    return false;
-  } else {
-    currentSlide--;
-    theChecker();
-  }
-}
 
 // Creating TheChecker
 function theChecker() {
-  // currentSlide = 1;
   setInterval(() => {
+    // currentSlide = 1;
     removeAllActive();
+        
     sliderImages[currentSlide - 1].classList.add("active");
+    sliderHeading[currentSlide - 1].classList.add("active");    
+    sliderPara[currentSlide - 1].classList.add("textAnimation");    
+    paginationCreatedUl.children[currentSlide - 1].classList.add("active");
 
-    if (currentSlide == 1) {
-      prevButton.classList.add("disabled");
-    } else {
-      prevButton.classList.remove("disabled");
-    }
-    if (currentSlide == sliderCount) {
-      nextButton.classList.add("disabled");
-    } else {
-      nextButton.classList.remove("disabled");
-    }
     currentSlide++;
     if (currentSlide > sliderCount) {
       currentSlide = 1;
-    }
-  }, 7000);
+    };
+  }, 6000);
 }
+
+
 function removeAllActive() {
   sliderImages.forEach(function (img) {
     img.classList.remove("active");
   });
-}
 
-console.log(sliderImages);
+  paginationBullets.forEach(function (bull) {
+    bull.classList.remove("active");
+  });
+
+  sliderHeading.forEach(function (hed) {
+    hed.classList.remove("active");
+  });
+
+  sliderPara.forEach(function (para) {
+    para.classList.remove("textAnimation");
+  });
+}
+// theChecker();
 
 //  End Landing Slider
+
+
+
+
+
+
+
+
+
+
+
+
 
 let megaImgDiv = document.querySelector(".mega-Img");
 let megaImgPic = document.createElement("img");
