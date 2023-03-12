@@ -1,17 +1,13 @@
 //  Start Landing Slider
 
-let sliderImages = Array.from(
-  document.querySelectorAll(".sliderContainer .sliderImage")
-);
+let sliderImages = Array.from(document.querySelectorAll(".sliderImage"));
 
 let sliderCount = sliderImages.length;
 
 let sliderHeading = Array.from(document.querySelectorAll(".sliderText h2"));
 let sliderPara = Array.from(document.querySelectorAll(".sliderText p"));
 
-
 currentSlide = 1;
-
 
 // Creating ul and li
 let paginationelement = document.createElement("ul");
@@ -24,7 +20,6 @@ for (let i = 1; i <= sliderCount; i++) {
   paginationelement.appendChild(paginationItem);
 }
 document.getElementById("indicators").appendChild(paginationelement);
-
 
 let paginationBullets = Array.from(
   document.querySelectorAll("#pagination-ul li")
@@ -41,25 +36,23 @@ let paginationCreatedUl = document.getElementById("pagination-ul");
 
 theChecker();
 
-
 // Creating TheChecker
 function theChecker() {
   setInterval(() => {
     // currentSlide = 1;
     removeAllActive();
-        
+
     sliderImages[currentSlide - 1].classList.add("active");
-    sliderHeading[currentSlide - 1].classList.add("active");    
-    sliderPara[currentSlide - 1].classList.add("textAnimation");    
+    sliderHeading[currentSlide - 1].classList.add("active");
+    sliderPara[currentSlide - 1].classList.add("textAnimation");
     paginationCreatedUl.children[currentSlide - 1].classList.add("active");
 
     currentSlide++;
     if (currentSlide > sliderCount) {
       currentSlide = 1;
-    };
+    }
   }, 6000);
 }
-
 
 function removeAllActive() {
   sliderImages.forEach(function (img) {
@@ -81,18 +74,6 @@ function removeAllActive() {
 // theChecker();
 
 //  End Landing Slider
-
-
-
-
-
-
-
-
-
-
-
-
 
 let megaImgDiv = document.querySelector(".mega-Img");
 let megaImgPic = document.createElement("img");
@@ -271,3 +252,125 @@ console.log(totalHeight);
 window.addEventListener("scroll", (e) => {
   // const e = window.scrollY;
 });
+
+// Start Gameing ***********************************************************
+document.querySelector(".control-buttons span").onclick = function () {
+  let userName = prompt("What Is Your Name?");
+  window.localStorage.setItem("userName", userName);
+  if (window.localStorage.getItem(userName)){
+    document.querySelector(".control-buttons").style.display = 'none';
+  }
+
+  if (userName == null || userName == "") {
+    document.querySelector(".info .userName span").innerHTML = "Unknown";
+  } else {
+    document.querySelector(".info .userName span").innerHTML = userName;
+    document.querySelector(".control-buttons").remove();
+  }
+};
+
+let duration = 1000;
+
+let blocksContainer = document.querySelector(".memory-game-block");
+let blocks = Array.from(blocksContainer.children);
+let blocksCount = blocks.length;
+
+// let orderRange = [...Array(blocksCount).keys()];// Using "..." Spred Operator to extracting data into Array
+// ***** Or
+let orderRange = Array.from(Array(blocksCount).keys()); // Using Normal Array.from to extracting data into Array
+shuffle(orderRange);
+
+// Add Order Css Property to game blocks
+blocks.forEach((block, index) => {
+  block.style.order = orderRange[index];
+
+  // Add Click Event
+  block.addEventListener("click", function () {
+    flipBlock(block);
+  });
+});
+
+// Flip Block Function
+function flipBlock(selectedBlock) {
+  // Add class is flipped
+  selectedBlock.classList.add("is-flipped");
+
+  // collect all flipped Cards
+  let allFlippedBlocks = blocks.filter((flippedBlock) =>
+    flippedBlock.classList.contains("is-flipped")
+  );
+
+  if (allFlippedBlocks.length === 2) {
+    console.log("Tow Flipped Cards Selected");
+    // Stop Clicking Function
+    stopClicking();
+
+    // Check Matched Block Function
+    checkMatchedBlocks(allFlippedBlocks[0], allFlippedBlocks[1]);
+  }
+}
+
+// Stop Clicking Function
+function stopClicking() {
+  // Add class no-clicking on main container
+  blocksContainer.classList.add("no-clicking");
+
+  setTimeout(() => {
+    blocksContainer.classList.remove("no-clicking");
+  }, duration);
+}
+
+//Check Matched Blocks
+function checkMatchedBlocks(firstBlock, secondeBlock) {
+
+  let triesElement = document.querySelector(".tries span");
+
+  if (firstBlock.dataset.type === secondeBlock.dataset.type) {
+
+    firstBlock.classList.remove("is-flipped");
+    secondeBlock.classList.remove("is-flipped");
+
+    firstBlock.classList.add("has-mach");
+    secondeBlock.classList.add("has-mach");
+
+    document.getElementById('success').play();
+    
+  } else {
+    
+    triesElement.innerHTML = parseInt(triesElement.innerHTML) + 1;
+    
+    setTimeout(() => {
+      
+      firstBlock.classList.remove("is-flipped");
+      secondeBlock.classList.remove("is-flipped");
+      
+    }, duration);
+    document.getElementById('fail').play();
+  }
+}
+
+// Shuffle Function
+function shuffle(array) {
+  // Setting Vars
+  let current = array.length,
+    temp,
+    random;
+
+  while (current > 0) {
+    // Get Random Numbers
+    random = Math.floor(Math.random() * current);
+
+    //Decrease Length By One
+    current--;
+
+    // [1] Save current elemnt in stash
+    temp = array[current];
+
+    // [2] Curent Element = Random Element
+    array[current] = array[random];
+
+    // [3] Random Element = Get Element From Stash
+    array[random] = temp;
+  }
+  return array;
+}

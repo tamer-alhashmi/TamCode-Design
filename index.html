@@ -20,6 +20,9 @@
       href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900;1000&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" /> -->
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.min.css"> -->
     <!-- Font Awesome library -->
@@ -43,7 +46,7 @@
             <a href="#gallery-sec">Gallery</a>
           </li>
           <li>
-            <a href="#Features-sec">Features</a>
+            <a href="#memoryGame">Memory Game</a>
           </li>
           <li id="megaLink">
             <a href="#Other-Links">Other Links</a>
@@ -53,8 +56,8 @@
               <div class="mega-Img"></div>
               <ul class="links">
                 <li>
-                  <a href="#testimonials"
-                    ><i class="far fa-comments fa-fw"></i> Testimonials</a
+                  <a href="#Features-sec"
+                    ><i class="far fa-comments fa-fw"></i>Features</a
                   >
                 </li>
                 <li>
@@ -302,8 +305,159 @@
       </div>
     </section>
     <!-- End Gallery -->
-    <!-- Start features  -->
 
+
+    <!-- Start Memory Game  -->
+    <section id="gameZone" class="gameZone">
+      <h2 class="parrallTitle">Memory Game</h2>
+      <div class="container">
+        <div id="memoryGame" class="memoryGame">
+          <!-- Login Screen  -->
+          <div class="control-buttons">
+            <span>Start Game</span>
+          </div>
+          <div class="info">
+            <div class="userName">
+              Hello: <span></span>
+            </div>
+            <div class="tries">
+              Wrong Tries: <span>0</span>
+            </div>
+          </div>
+
+          <div class="memory-game-block">
+            <div class="gameBlock" data-type="heart">
+              <div class="face front"></div>
+              <div class="face  back">
+                <i class="fa-solid fa-heart"></i>
+              </div>
+            </div>
+            <div class="gameBlock" data-type="heart">
+              <div class="face front"></div>
+              <div class="face  back">
+                <i class="fa-solid fa-heart"></i>
+              </div>
+            </div>
+            <div class="gameBlock" data-type="heart-circle-bolt">
+              <div class="face front"></div>
+              <div class="face  back">
+                <i class="fa-solid fa-heart-circle-bolt"></i>
+              </div>
+            </div>
+            <div class="gameBlock" data-type="heart-circle-bolt">
+              <div class="face front"></div>
+              <div class="face  back">
+                <i class="fa-solid fa-heart-circle-bolt"></i>
+              </div>
+            </div>
+            <div class="gameBlock" data-type="mug-hot">
+              <div class="face front"></div>
+              <div class="face  back">
+                <i class="fa-solid fa-mug-hot"></i>
+              </div>
+            </div>
+            <div class="gameBlock" data-type="mug-hot">
+              <div class="face front"></div>
+              <div class="face  back">
+                <i class="fa-solid fa-mug-hot"></i>
+              </div>
+            </div>
+            <div class="gameBlock" data-type="sharp-kiss-heart">
+              <div class="face front"></div>
+              <div class="face  back">
+                <i class="fa-regular fa-face-kiss-wink-heart"></i>
+              </div>
+            </div>
+            <div class="gameBlock" data-type="sharp-kiss-heart">
+              <div class="face front"></div>
+              <div class="face  back">
+                <i class="fa-regular fa-face-kiss-wink-heart"></i>
+              </div>
+            </div>
+            <div class="gameBlock" data-type="kiss-heart">
+              <div class="face front"></div>
+              <div class="face  back">
+                <i class="fa-solid fa-face-kiss-wink-heart"></i>
+              </div>
+            </div>
+            <div class="gameBlock" data-type="kiss-heart">
+              <div class="face front"></div>
+              <div class="face  back">
+                <i class="fa-solid fa-face-kiss-wink-heart"></i>
+              </div>
+            </div>
+            <div class="gameBlock" data-type="tiktok">
+              <div class="face front"></div>
+              <div class="face  back">
+                <i class="fa-brands fa-tiktok"></i>
+              </div>
+            </div>
+            <div class="gameBlock" data-type="tiktok">
+              <div class="face front"></div>
+              <div class="face  back">
+                <i class="fa-brands fa-tiktok"></i>
+              </div>
+            </div>
+            <div class="gameBlock" data-type="facebook">
+              <div class="face front"></div>
+              <div class="face  back">
+                <i class="fa-brands fa-facebook"></i>
+              </div>
+            </div>
+            <div class="gameBlock" data-type="facebook">
+              <div class="face front"></div>
+              <div class="face  back">
+                <i class="fa-brands fa-facebook"></i>
+              </div>
+            </div>
+            <div class="gameBlock" data-type="star">
+              <div class="face front"></div>
+              <div class="face  back">
+                <i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+            <div class="gameBlock" data-type="star">
+              <div class="face front"></div>
+              <div class="face  back">
+                <i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+            <div class="gameBlock" data-type="twitter">
+              <div class="face front"></div>
+              <div class="face  back">
+                <i class="fa-brands fa-twitter"></i>
+              </div>
+            </div>
+            <div class="gameBlock" data-type="twitter">
+              <div class="face front"></div>
+              <div class="face  back">
+                <i class="fa-brands fa-twitter"></i>
+              </div>
+            </div>
+            <div class="gameBlock" data-type="sharpheart">
+              <div class="face front"></div>
+              <div class="face  back">
+                <i class="fa-sharp fa-regular fa-heart"></i>
+              </div>
+            </div>
+            <div class="gameBlock" data-type="sharpheart">
+              <div class="face front"></div>
+              <div class="face  back">
+                <i class="fa-sharp fa-regular fa-heart"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <audio id="success" src="/audio/success.mp3" preload="auto"></audio>
+      <audio id="fail" src="/audio/negative.mp3" preload="auto"></audio>
+    </section>
+
+    <!-- End Memory Game  -->
+
+
+    <!-- Start features  -->
     <section class="hidden features" id="Features-sec">
       <h2 class="parrallTitle">Awesome Parallax Scrolling</h2>
       <div class="container">

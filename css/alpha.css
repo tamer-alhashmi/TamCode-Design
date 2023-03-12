@@ -1,3 +1,7 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css);
+
+
+
 /* Start Variables */
 :root {
     --font-size-sm: clamp(0.8rem, 0.17vw + 0.76rem, 0.89rem);
@@ -128,7 +132,7 @@ a {
 
 .sticky {
     position: sticky;
-    background-color: #1787e030;
+    background-color: #00335c80;
     backdrop-filter: blur(3px);
     padding: 0 100px;
     z-index: 100000;
@@ -917,8 +921,139 @@ a {
         opacity: 0;
     }
 }
-
 /* End Gallery */
+
+/* Start Game Zone */
+/* Start Game Login Screen */
+.memoryGame {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.memoryGame .control-buttons {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: var(--main-opacity-color);
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+    background-color: #2195f33f;
+    backdrop-filter: blur(1px);
+    z-index: 2;
+}
+
+.memoryGame .control-buttons span {
+    background-color: #f44336;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px #f44336;
+    padding: 4px 10px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.memoryGame .control-buttons span:hover {
+    background-color: var(--main-color-alt);
+        box-shadow: 0px 0px 10px var(--main-color-alt);
+        scale: 1.1;
+}
+
+
+/* End Game Login Screen */
+
+
+.memoryGame .info {
+    /* width: min(800px, 80vw); */
+    width: 100%;
+    margin: 20px auto 0;
+    background-color: #f6f6f6;
+    padding: 20px;
+    font-size: var(--font-size-md);
+    overflow: hidden;
+    border: 2px solid #2196f3;
+    color: #212121;
+    border-radius: 8px;
+}
+
+.memoryGame .info .userName {
+    float: left;
+    width: 50%;
+}
+.memoryGame .info .tries {
+    float: right;
+    text-align: right;
+    width: 50%;
+}
+
+.memory-game-block {
+    display: grid;
+    margin: 20px auto;
+    max-width: 800px;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.memory-game-block.no-clicking{
+    pointer-events: none;
+}
+
+.memory-game-block .gameBlock {
+    width: min(14vw, 110px);
+    height: min(14vw, 110px);
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    margin: 0 5px 10px;
+    position: relative;
+    text-align: center;
+}
+
+.memory-game-block .gameBlock .front {
+    background-color: #333;
+    /* line-height: 20vh; */
+}
+
+.memory-game-block .gameBlock .front::before {
+    content: '!';
+    color: #fff;
+    font-size: var(--font-size-lg);
+    font-weight: bold;
+}
+.memory-game-block .gameBlock .back {
+    background-color: #607d8b;
+    transform: rotateY(180deg);
+}
+
+.memory-game-block .gameBlock .back i {
+    font-size: var(--font-size-xl);
+}
+.memory-game-block .gameBlock .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    backface-visibility: hidden;
+    border: 3px solid #2196f3;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.memory-game-block .gameBlock.is-flipped, 
+.memory-game-block .gameBlock.has-mach {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    pointer-events: none;
+}
+/* End Game Zone */
+
 
 /* Start features */
 .features {
@@ -2730,10 +2865,9 @@ body {
 }
 
 .parrallTitle {
-    font-size: var(--font-size-xxl);
-    margin-left: 200px;
+    font-size: var(--font-size-lg);
+    margin-left: 10vw;
     color: white;
-    /* z-index: 10; */
     margin-bottom: 20px;
 }
 
