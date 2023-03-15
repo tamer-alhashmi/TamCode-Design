@@ -2977,39 +2977,34 @@ section.newSlider {
     height: 100%;
     flex-direction: column;
 }
-.newSlider .sliderZone .sliderOne {
-    background-blend-mode: color-burn;
-    background-position: center top;
-    transform: translate3d(0, 0, 0);
-    background-repeat: no-repeat;
+.newSlider .sliderZone img {
+    /* transform: translate3d(0, 0, 0); */
     position: absolute;
     top: 0;
     left: 0;
     width: 0;
     height: 100%;
     transition: 0.5s ease-in-out;
-    background-size: cover;
 }
 
-.newSlider .sliderZone .sliderOne.active {
-    /* width: 100%; */
+.newSlider .sliderZone img.active {
     /* animation: photoSlideAnimat 4s steps(1000) 1s both ; */
-    animation: 4s ease-in 1s   both running slideinAnimat;
+    animation: 4s ease-in steps(100) 1  both running slideinAnimat;
 }
 
 @keyframes slideinAnimat {
     0% {
         width: 0%;
-    background-size: cover;
+    /* background-size: cover; */
 }
 
-20%, 100% {
-        background-size: cover;
+100% {
+        /* background-size: cover; */
         width: 100%;
     }
 }
 
-.sliderZone .sliderOne:first-child {
+/* .sliderZone .sliderOne:first-child {
     background-image: url(../photo/landingSlider/1.jpg);
 }
 .sliderZone .sliderOne:nth-child(2) {
@@ -3020,7 +3015,7 @@ section.newSlider {
 }
 .sliderZone .sliderOne:nth-child(4) {
     background-image: url(../photo/landingSlider/4.jpg);
-}
+} */
 
 .newSlidTitle {
     z-index: 20;
@@ -3039,6 +3034,7 @@ section.newSlider {
     letter-spacing: 2px;
     overflow: hidden;
     border-right: 2px solid rgb(255 255 255 / 80%);
+    mix-blend-mode:color-burn;
 }
 
 .sliderZone .newSlidTitle h2.active{
@@ -3071,11 +3067,11 @@ section.newSlider {
     height: 350px;
     border:30px solid;
     background-color: transparent;
-    top: 50px;
-    left: 50%;
-    z-index: 10;
-    transform: rotate(-25deg);
     opacity: 0;
+            top: 50px;
+                left: 50%;
+                transform: translate3d(0, 0, 25%);
+    z-index: 10;
     /* transform-origin: top left; */
 }
 .maskRay .mask:first-child {
@@ -3092,18 +3088,17 @@ section.newSlider {
 }
 .maskRay .mask.active {
     opacity: 1;
-    animation: maskAction 4s steps(3), 2s both linear infinite;
+    animation: maskAction 4s steps(30), 4s both linear infinite;
 }
 @keyframes maskAction {
-
     20%,70% {
         opacity: 1;
         top: 20%;
         left: 25%;
         /* transform: rotate(0deg); */
-        transform: translate3d(0,25%, 0);
+        transform: translate3d(0, 25%, 0);
     }
-    80% {
+    90% {
         opacity: 1;
     }
     100% {
@@ -3151,8 +3146,9 @@ section.newSlider {
     padding: 4px 10px;
     margin: 0 auto;
     cursor: pointer;
-    transition: 0.3s;
+    transition: 0.6s;
     position: relative;
+    overflow: hidden;
 }
 .sliderMenu ul li:not(:last-child) {
     border-right: 1px solid #3bb7ff9d;
@@ -3169,17 +3165,21 @@ section.newSlider {
     height: 2px;
     background-color: rgb(255, 2, 2);
     bottom: 0;
-    left: 0;
-    transition: 0.5s;
+    left: 100%;
+    transition: 1s;
     /* animation: textTyping 4s linear infinite; */
-    animation: sliderliAnimat 4s steps(2000) ;
+    animation: sliderliAnimat 5.75s ease-in-out both ;
 }
 @keyframes sliderliAnimat {
-    0% {
+    0%{
     width: 0;
+    left: 0;
+    }
+    85% {
+        left: 0;
+    }
+    100% {
+        width: 100%;
     }
 
-    100% {
-        width: 102%;
-    }
 }
