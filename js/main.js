@@ -31,27 +31,25 @@ for (let i = 0; i < paginationBullets.length; i++) {
     theChecker();
   };
 }
-
 let paginationCreatedUl = document.getElementById("pagination-ul");
 
 theChecker();
 
 // Creating TheChecker
 function theChecker() {
+  removeAllActive();
+  sliderImages[currentSlide - 1].classList.add("active");
+  sliderHeading[currentSlide - 1].classList.add("active");
+  sliderPara[currentSlide - 1].classList.add("textAnimation");
+  paginationCreatedUl.children[currentSlide - 1].classList.add("active");
+
+  // currentSlide = 1;
   setInterval(() => {
-    // currentSlide = 1;
-    removeAllActive();
-
-    sliderImages[currentSlide - 1].classList.add("active");
-    sliderHeading[currentSlide - 1].classList.add("active");
-    sliderPara[currentSlide - 1].classList.add("textAnimation");
-    paginationCreatedUl.children[currentSlide - 1].classList.add("active");
-
     currentSlide++;
     if (currentSlide > sliderCount) {
       currentSlide = 1;
     }
-  }, 6000);
+  }, 4000);
 }
 
 function removeAllActive() {
@@ -84,13 +82,12 @@ megaImgPic.style.cssText = "width: 100%;";
 // Start Creating ScrollUp Button
 let scrBtn = document.createElement("button");
 scrBtn.className = "scroll-Up";
+
 // Scroll button icon
 let scrIcon = document.createElement("i");
 scrIcon.style.fontSize = "18px";
-
-scrBtn.style.cssText =
-  "background-color: var(--main-color); color: white; width: 30px; height: 30px; padding: 5px; border-radius: 5px; border: none; position: fixed; bottom: 20px; right: 20px; cursor: pointer; display: none; z-index: 100;";
 scrIcon.className = "fa-solid fa-chevron-up";
+
 // Append btn to document
 scrBtn.append(scrIcon);
 document.body.prepend(scrBtn);
@@ -157,6 +154,7 @@ let counter = setInterval(() => {
 let vidList = document.querySelectorAll(".videos .vid-menu ul li");
 let vidZone = document.querySelector(".vid-zone video source");
 
+// List
 vidList.forEach(function (li) {
   li.addEventListener("click", (e) => {
     console.log("yes");
@@ -188,7 +186,7 @@ const observer = new IntersectionObserver((entries) => {
         span.style.width = span.dataset.width;
       });
 
-      if (window.scrollY >= statSec.offsetTop - 20) {
+      if (window.scrollY >= statSec.offsetTop - 100) {
         if (!started) {
           nums.forEach((num) => startCount(num));
         }
@@ -218,47 +216,44 @@ hiddenRightElement.forEach((el) => observer.observe(el));
 
 const parrallTitle = document.querySelectorAll(".parrallTitle");
 
-window.addEventListener("scroll", () => {
-  // const sectinoScrollable =
-  //   document.documentElement.scrollHeight - window.innerHeight;
-  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-  const scrolled = window.scrollY;
-  // console.log(scrolled);
-  // console.log(scrollable);
+// window.addEventListener("scroll", () => {
+//   // const sectinoScrollable =
+//   //   document.documentElement.scrollHeight - window.innerHeight;
+//   const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+//   const scrolled = window.scrollY;
+//   // console.log(scrolled);
+//   // console.log(scrollable);
 
-  // if (Math.ceil(scrolled) === scrollable) {
-  // }
-});
+//   // if (Math.ceil(scrolled) === scrollable) {
+//   // }
+// });
 // End TimeLine
 
-const statHeight2 = window.scrollY - statSec.scrollHeight;
-const statHeight3 = window.innerHeight - statSec.scrollHeight;
-const statHeight4 =
-  document.documentElement.scrollHeight - statSec.scrollHeight;
-const sectinoScrollable =
-  document.documentElement.scrollHeight - window.innerHeight;
+// const statHeight2 = window.scrollY - statSec.scrollHeight;
+// const statHeight3 = window.innerHeight - statSec.scrollHeight;
+// const statHeight4 =
+//   document.documentElement.scrollHeight - statSec.scrollHeight;
+// const sectinoScrollable =
+//   document.documentElement.scrollHeight - window.innerHeight;
 
-const offSet = statSec.offsetTop;
-const statHeight = statSec.scrollHeight;
-const totalHeight = offSet + statSec.scrollHeight;
+// const offSet = statSec.offsetTop;
+// const statHeight = statSec.scrollHeight;
+// const totalHeight = offSet + statSec.scrollHeight;
 
-console.log(offSet);
-console.log(statHeight);
-console.log(totalHeight);
+// console.log(offSet);
+// console.log(statHeight);
+// console.log(totalHeight);
 // console.log(statHeight2);
 // console.log(statHeight3);
 // console.log(statHeight4);
 // console.log(sectinoScrollable);
-window.addEventListener("scroll", (e) => {
-  // const e = window.scrollY;
-});
 
 // Start Gameing ***********************************************************
 document.querySelector(".control-buttons span").onclick = function () {
   let userName = prompt("What Is Your Name?");
   window.localStorage.setItem("userName", userName);
-  if (window.localStorage.getItem(userName)){
-    document.querySelector(".control-buttons").style.display = 'none';
+  if (window.localStorage.getItem(userName)) {
+    document.querySelector(".control-buttons").style.display = "none";
   }
 
   if (userName == null || userName == "") {
@@ -322,31 +317,26 @@ function stopClicking() {
 
 //Check Matched Blocks
 function checkMatchedBlocks(firstBlock, secondeBlock) {
-
   let triesElement = document.querySelector(".tries span");
 
   if (firstBlock.dataset.type === secondeBlock.dataset.type) {
-
     firstBlock.classList.remove("is-flipped");
     secondeBlock.classList.remove("is-flipped");
 
     firstBlock.classList.add("has-mach");
     secondeBlock.classList.add("has-mach");
 
-    document.getElementById('success').play();
-    
+    document.getElementById("success").play();
   } else {
-    
     triesElement.innerHTML = parseInt(triesElement.innerHTML) + 1;
-    
+
     setTimeout(() => {
-      
       firstBlock.classList.remove("is-flipped");
       secondeBlock.classList.remove("is-flipped");
-      
     }, duration);
-    document.getElementById('fail').play();
+    document.getElementById("fail").play();
   }
+  // Check Tries Function
 }
 
 // Shuffle Function
@@ -374,3 +364,5 @@ function shuffle(array) {
   }
   return array;
 }
+
+

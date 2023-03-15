@@ -13,6 +13,7 @@
     --font-size-xxxl: clamp(3.05rem, 3.54vw + 2.17rem, 5rem);
     --main-color: #2196f3;
     --main-color-alt: #1787e0;
+    --main-txt-BG-color: #2195f3c5;
     --main-opacity-color: #2195f309;
     --main-transition: 0.6s;
     --main-padding-top: 100px;
@@ -36,19 +37,20 @@ html {
 }
 
 ::-webkit-scrollbar {
-    width: 15px;
+    width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-    background-color: white;
+    background-color: rgb(0 0 0 / 28%);
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: var(--main-color);
+    background-color: #2196f380;
+    border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: var(--main-color-alt);
+    background-color: #1787e080;
 }
 
 :focus {
@@ -107,6 +109,23 @@ a {
 }
 
 /* End Container Style  */
+/* scroll-Up BTN */
+.scroll-Up {
+    background-color: var(--main-color);
+    color: white;
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    display: none;
+    z-index: 100;
+}
+
 .scroller {
     background-color: var(--main-color);
     position: fixed;
@@ -378,10 +397,10 @@ a {
     background-image: url(../photo/landingSlider/slide\(3\).webp);
 }
 .sliderContainer .sliderImage:nth-child(4) {
-    background-image: url(../photo/landingSlider/slide\(4\).webp);
+    background-image: url(../photo/landingSlider/agriculture-iot-with-rice-field-background.jpg);
 }
 .sliderContainer .sliderImage:nth-child(5) {
-    background-image: url(../photo/landingSlider/slide\(5\).webp);
+    background-image: url(../photo/landingSlider/businessman-using-digital-tablet.jpg);
 }
 
 .sliderText {
@@ -412,19 +431,19 @@ a {
 .sliderText p {
     font-size: var(--font-size-md);
     color: rgb(255 255 255 / 80%);
-    border-right: 2px solid rgb(255 255 255 / 80%);
     font-weight: 300;
-    letter-spacing: 2px;
     margin-top: 10px;
-    width: 0px;
+    max-width: fit-content;
     text-transform: capitalize;
-    white-space: nowrap;
     transition: 1s;
-    overflow: hidden;
     opacity: 0;
+    letter-spacing: 2px;
+    overflow: hidden;
+    border-right: 2px solid rgb(255 255 255 / 80%);
+    white-space: nowrap;
 }
 .sliderText p.textAnimation {
-    animation: textTyping 2s steps(70) 2s both, blink 0.5s infinite;
+    animation: textTyping 2s steps(100) 2s both, blink 0.5s infinite;
     opacity: 1;
 }
 
@@ -668,6 +687,17 @@ a {
 }
 /* slidTitle End */
 
+/* Slider Link */
+.sliderTowLink {
+    background-color: var(--main-color);
+    color: white;
+    padding: 8px 10px;
+    /* margin-top: 100px; */
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+
+}
 /* Start Articles */
 .articles {
     position: relative;
@@ -2188,7 +2218,8 @@ a {
 .videos .holder {
     display: flex;
     justify-content: center;
-    border: 1px solid #ddd;
+    /* border: 1px solid #ddd; */
+    border-radius: 10px;
 }
 
 @media (max-width: 767px) {
@@ -2205,7 +2236,7 @@ a {
 .videos .holder .vid-menu .lable {
     display: flex;
     justify-content: space-between;
-    background-color: #f4f4f4;
+    background-color: var(--main-color);
     padding: 20px;
     font-weight: bold;
 }
@@ -2214,17 +2245,19 @@ a {
     padding: 20px;
     cursor: pointer;
     border-top: 1px solid var(--section-background);
+    color: #ffffff;
+    transition: 0.5s;
 }
 
 .videos .holder .vid-menu ul li:hover,
 .vid-menu ul li.active {
-    background-color: #fafafa;
-    color: var(--main-color);
+    background-color: #212121ce;
+    color: white;
 }
 
 .videos .holder .vid-menu ul li span {
     display: block;
-    color: #777;
+    color: #b3b3b3;
     margin-top: 10px;
 }
 
@@ -2233,8 +2266,9 @@ a {
     flex-direction: column;
     justify-content: space-between;
     padding: 10px;
-    background-color: #e2e2e2;
+    background-color:var(--main-color);
     position: relative;
+    /* width: 100%; */
 }
 
 @media (max-width: 767px) {
@@ -2259,7 +2293,7 @@ a {
 
 .holder .vid-zone p {
     padding: 20px;
-    background-color: white;
+    background-color: var(--main-color-alt);
     margin-top: 10px;
 }
 
@@ -2749,115 +2783,115 @@ body {
  /* Rings Animation */
 
 
- .ringAnimat {
-     position: relative;
-     width: 100%;
-     display: flex;
-     justify-content: center;
-     align-items: center;
- }
+.ringAnimat {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-    .ringAnimat p {
-        position: absolute;
-        color: #fff;
-        font-size: 1.5em;
-        font-family: consolas;
-        bottom: -80px;
-        letter-spacing: 0.15em;
+.ringAnimat p {
+    position: absolute;
+    color: #fff;
+    font-size: 1.5em;
+    font-family: consolas;
+    bottom: -80px;
+    letter-spacing: 0.15em;
 
+}
+
+.ringAnimat .ring {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: -30px;
+    border: 4px solid transparent;
+    border-top: 4px solid #E91E63;
+    animation: rotate 4s linear infinite;
+}
+
+.ringAnimat .ring:nth-child(2) {
+    border-top-color: #2196F3;
+    animation: rotate2 4s linear infinite;
+    animation-delay: -2s;
+}
+
+.ringAnimat .ring:nth-child(3) {
+    border-top-color: #4CAF50;
+    animation: rotate3 4s linear infinite;
+    animation-delay: 2s;
+    position: absolute;
+    top: -66.66px;
+}
+
+
+.ringAnimat .ring::before {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    top: 12px;
+    right: 12px;
+    background-color: #E91E63;
+    box-shadow: 0 0 0 5px #E91E6333,
+        0 0 0 10px #E91E6322,
+        0 0 0 16px #E91E6311,
+        0 0 20px #E91E63,
+        0 0 50px #E91E63;
+}
+
+.ringAnimat .ring:nth-child(2)::before {
+    bottom: 12px;
+    left: 12px;
+    background-color: #2196F3;
+    box-shadow: 0 0 0 5px #2196F333,
+        0 0 0 10px #2196F322,
+        0 0 0 16px #2196F311,
+        0 0 20px #2196F3,
+        0 0 50px #2196F3;
+}
+
+.ringAnimat .ring:nth-child(3)::before {
+    background-color: #4CAF50;
+    box-shadow: 0 0 0 5px #4CAF5033,
+        0 0 0 10px #4CAF5022,
+        0 0 0 16px #4CAF5011,
+        0 0 20px #4CAF50,
+        0 0 50px #4CAF50;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
     }
 
-    .ringAnimat .ring {
-        position: relative;
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        margin: -30px;
-        border: 4px solid transparent;
-        border-top: 4px solid #E91E63;
-        animation: rotate 4s linear infinite;
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotate2 {
+    0% {
+        transform: rotate(360deg);
     }
 
-    .ringAnimat .ring:nth-child(2) {
-        border-top-color: #2196F3;
-        animation: rotate2 4s linear infinite;
-        animation-delay: -2s;
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes rotate3 {
+    0% {
+        transform: rotate(0deg);
     }
 
-    .ringAnimat .ring:nth-child(3) {
-        border-top-color: #4CAF50;
-        animation: rotate3 4s linear infinite;
-        animation-delay: 2s;
-        position: absolute;
-        top: -66.66px;
+    100% {
+        transform: rotate(360deg);
     }
-
-
-    .ringAnimat .ring::before {
-        content: '';
-        position: absolute;
-        width: 15px;
-        height: 15px;
-        border-radius: 50%;
-        top: 12px;
-        right: 12px;
-        background-color: #E91E63;
-        box-shadow: 0 0 0 5px #E91E6333,
-            0 0 0 10px #E91E6322,
-            0 0 0 16px #E91E6311,
-            0 0 20px #E91E63,
-            0 0 50px #E91E63;
-    }
-
-    .ringAnimat .ring:nth-child(2)::before {
-        bottom: 12px;
-        left: 12px;
-        background-color: #2196F3;
-        box-shadow: 0 0 0 5px #2196F333,
-            0 0 0 10px #2196F322,
-            0 0 0 16px #2196F311,
-            0 0 20px #2196F3,
-            0 0 50px #2196F3;
-    }
-
-    .ringAnimat .ring:nth-child(3)::before {
-        background-color: #4CAF50;
-        box-shadow: 0 0 0 5px #4CAF5033,
-            0 0 0 10px #4CAF5022,
-            0 0 0 16px #4CAF5011,
-            0 0 20px #4CAF50,
-            0 0 50px #4CAF50;
-    }
-
-    @keyframes rotate {
-        0% {
-            transform: rotate(0deg);
-        }
-
-        100% {
-            transform: rotate(360deg);
-        }
-    }
-
-    @keyframes rotate2 {
-        0% {
-            transform: rotate(360deg);
-        }
-
-        100% {
-            transform: rotate(0deg);
-        }
-    }
-
-    @keyframes rotate3 {
-        0% {
-            transform: rotate(0deg);
-        }
-
-        100% {
-            transform: rotate(360deg);
-        }
-    }
+}
 
 .how-works,
 .how-works .works-area {
@@ -2868,8 +2902,284 @@ body {
     font-size: var(--font-size-lg);
     margin-left: 10vw;
     color: white;
-    margin-bottom: 20px;
+    margin: 65px;
 }
 
 /* Discount Section */
 
+
+
+
+
+
+
+.grid div:first-child:before{
+    content: 'Element1';
+}
+.grid div:nth-child(2):before{
+    content: 'Element2';
+}
+.grid div:nth-child(3):before{
+    content: 'Element3';
+}
+.grid div:nth-child(4):before{
+    content: 'Element4';
+}
+.grid div:nth-child(5):before{
+    content: 'Element5';
+}
+.grid div:nth-child(6):before{
+    content: 'Element6';
+}
+
+
+
+
+
+/* Slider 2 */
+
+*{ 
+ --slidingAT: 1s;
+ --slidingDelay: var(--slidingAT) / 3 * 2;
+ --maskAT: var(--slidingAT) * 0.7;
+ --headingAT: var(--slidingAT) * 1.5;
+ --controlAT: var(--slidingAT) / 2;
+ --easing: ease-in-out;
+ --blendMode: luminosity;
+
+ --contentLeft: 40%;
+ --contentTop: 40%;
+
+ --headingPadding: 30px;
+ --headingFontSize: 100px;
+
+ --maskTop: 15%;
+ --maskRight: 100% - var(--contentLeft);
+ --maskHeight: 67vh;
+ --maskWidth: var(--maskHeight) * 0.75;
+ --bgColors: (dark: lighten(#242424, 20%),
+        green: #42605E,
+        red: lighten(#6A0A0D, 10%),
+        blue: #2D7791);
+}
+section.newSlider {
+    position: relative;
+    width: calc(100vw - 10px);
+    height: 100vh;
+    overflow: hidden;
+}
+.newSlider .sliderZone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+}
+.newSlider .sliderZone .sliderOne {
+    background-blend-mode: color-burn;
+    background-position: center top;
+    transform: translate3d(0, 0, 0);
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    transition: 0.5s ease-in-out;
+    background-size: cover;
+}
+
+.newSlider .sliderZone .sliderOne.active {
+    /* width: 100%; */
+    /* animation: photoSlideAnimat 4s steps(1000) 1s both ; */
+    animation: 4s ease-in 1s   both running slideinAnimat;
+}
+
+@keyframes slideinAnimat {
+    0% {
+        width: 0%;
+    background-size: cover;
+}
+
+20%, 100% {
+        background-size: cover;
+        width: 100%;
+    }
+}
+
+.sliderZone .sliderOne:first-child {
+    background-image: url(../photo/landingSlider/1.jpg);
+}
+.sliderZone .sliderOne:nth-child(2) {
+    background-image: url(../photo/landingSlider/2.jpg);
+}
+.sliderZone .sliderOne:nth-child(3) {
+    background-image: url(../photo/landingSlider/3.jpg);
+}
+.sliderZone .sliderOne:nth-child(4) {
+    background-image: url(../photo/landingSlider/4.jpg);
+}
+
+.newSlidTitle {
+    z-index: 20;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.sliderZone .newSlidTitle h2 {
+    font-size: var(--font-size-xxl);
+    transition: 0.6s;
+    margin: 0px;
+    opacity: 0;
+    white-space: nowrap;
+    letter-spacing: 2px;
+    overflow: hidden;
+    border-right: 2px solid rgb(255 255 255 / 80%);
+}
+
+.sliderZone .newSlidTitle h2.active{
+    animation: titleSlider 2s steps(1000) 2s both, blink 0.5s ;
+        opacity: 1;
+    }
+
+@keyframes titleSlider {
+    0% {
+        width: 0px;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    0% {
+        border-right-color: rgb(255 255 255 / 80%);
+    }
+
+    100% {
+        border-right-color: transparent;
+    }
+}
+.maskRay .mask {
+    position: absolute;
+    width: 250px;
+    height: 350px;
+    border:30px solid;
+    background-color: transparent;
+    top: 50px;
+    left: 50%;
+    z-index: 10;
+    transform: rotate(-25deg);
+    opacity: 0;
+    /* transform-origin: top left; */
+}
+.maskRay .mask:first-child {
+    border-image: url(../photo/landingSlider/1.jpg)25 25;
+}
+.maskRay .mask:nth-child(2){
+    border-image: url(../photo/landingSlider/5.jpg)25 25;
+}
+.maskRay .mask:nth-child(3){
+    border-image: url(../photo/landingSlider/2.jpg)25 25;
+}
+.maskRay .mask:nth-child(4){
+    border-image: url(../photo/landingSlider/3.jpg)25 25;
+}
+.maskRay .mask.active {
+    opacity: 1;
+    animation: maskAction 4s steps(3), 2s both linear infinite;
+}
+@keyframes maskAction {
+
+    20%,70% {
+        opacity: 1;
+        top: 20%;
+        left: 25%;
+        /* transform: rotate(0deg); */
+        transform: translate3d(0,25%, 0);
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        top: 50px;
+        left: 20%;
+        transform: translate3d(0, 0, 75%);
+        /* transform: rotate(25deg); */
+    }
+}
+
+.sliderZone .credit {
+    z-index: 1;
+    margin-top: 20vw;
+    background-color: #212121;
+    font-size: 22px;
+    padding: 4px 8px;
+    border-right: 1px solid white;
+    border-left: 1px solid white;
+}
+
+.sliderMenu {
+    position: absolute;
+    bottom: 0;
+    right: 0px;
+    background-color: var(--main-color);
+    padding: 0;
+    border-radius: 4px;
+        
+}
+.sliderMenu ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* position: relative; */
+    overflow: hidden;
+}
+.sliderMenu ul li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* width: 110px; */
+    width: 100%;
+    height: 60px;
+    padding: 4px 10px;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+}
+.sliderMenu ul li:not(:last-child) {
+    border-right: 1px solid #3bb7ff9d;
+}
+
+.sliderMenu ul li.active {
+    background-color: #212121;
+    
+}
+.sliderMenu ul li.active::before{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: rgb(255, 2, 2);
+    bottom: 0;
+    left: 0;
+    transition: 0.5s;
+    /* animation: textTyping 4s linear infinite; */
+    animation: sliderliAnimat 4s steps(2000) ;
+}
+@keyframes sliderliAnimat {
+    0% {
+    width: 0;
+    }
+
+    100% {
+        width: 102%;
+    }
+}
