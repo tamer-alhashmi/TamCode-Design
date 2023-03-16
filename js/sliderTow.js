@@ -16,6 +16,15 @@ let sliderMenuLi = Array.from(document.querySelectorAll(".sliderMenu ul li"));
 
 let lesIstem = document.querySelectorAll(".sliderMenu ul li");
 
+// let slidingAT  = ;
+// let slidingDelay  = ;
+// let mask = {
+//   activeDelay: slidingAT +slidingDelay/3,
+//   xOffset: "200px",
+//   yOffset: 0,
+//   deg: "10deg"
+// }
+
 // console.log(sliderImage);
 
 currentSlide = 1;
@@ -48,17 +57,23 @@ function firstLoad() {
 function checkFunction() {
   setInterval(() => {
     removeAllActive();
+    // if (sliderImage[currentSlide - 1].classList.add("active") === true) {
+    //   sliderImage.forEach(function (img) {
+    //     img.classList.toggle("active");
+    //   });
+    // }
     sliderImage[currentSlide - 1].classList.add("active");
+
     sliderTitle[currentSlide - 1].classList.add("active");
     sliderMenuLi[currentSlide - 1].classList.add("active");
     maskBg[currentSlide - 1].classList.add("active");
     listChick();
 
     currentSlide++;
-    if (currentSlide > 4) {
+    if (currentSlide > sliderCount) {
       currentSlide = 1;
     }
-  }, 6000);
+  }, 5000);
 }
 
 // List BG Slide
