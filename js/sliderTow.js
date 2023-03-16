@@ -5,7 +5,7 @@ let sliderImage = Array.from(
 let sliderCount = sliderImage.length;
 
 let sliderTitle = Array.from(
-  document.querySelectorAll(".sliderZone .newSlidTitle h2")
+  document.querySelectorAll(".sliderZone .newSlidTitle")
 );
 
 let maskBg = Array.from(document.querySelectorAll(".maskRay .mask"));
