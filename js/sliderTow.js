@@ -1,38 +1,88 @@
 // New Slider
 let sliderImage = Array.from(
-  document.querySelectorAll(".sliderZone img")
+  document.querySelectorAll(".sliderZone .sliderOne")
 );
+let sliderCount = sliderImage.length;
 
 let sliderTitle = Array.from(
   document.querySelectorAll(".sliderZone .newSlidTitle h2")
 );
 
 let maskBg = Array.from(document.querySelectorAll(".maskRay .mask"));
-function maskBgLoop() {
-  for (let i = 0; i < maskBg.length; i++) {}
-}
+
 let credit = document.getElementById("credit");
+
 let sliderMenuLi = Array.from(document.querySelectorAll(".sliderMenu ul li"));
 
-// console.log(sliderImage);
-// console.log(sliderTitle);
-console.log(maskBg);
-// console.log(credit);
-// console.log(sliderMenuLi);
+let lesIstem = document.querySelectorAll(".sliderMenu ul li");
 
-sliderCount = sliderImage.length;
+// console.log(sliderImage);
+
 currentSlide = 1;
+firstLoad();
 checkFunction();
 
+for (let i = 1; i <= sliderImage.length; i++) {
+  sliderMenuLi.forEach(function (lis) {
+    lis.setAttribute("data-count", i++);
+  });
+}
 
+for (let i = 0; i < sliderMenuLi.length; i++) {
+  sliderMenuLi[i].onclick = function () {
+    currentSlide = parseInt(this.getAttribute("data-count"));
+  };
+
+  checkFunction();
+}
+
+// First Load
+function firstLoad() {
+  sliderImage[currentSlide - 1].classList.add("active");
+  sliderTitle[currentSlide - 1].classList.add("active");
+  sliderMenuLi[currentSlide - 1].classList.add("active");
+  maskBg[currentSlide - 1].classList.add("active");
+}
+// check Function
+
+function checkFunction() {
+  setInterval(() => {
+    removeAllActive();
+    sliderImage[currentSlide - 1].classList.add("active");
+    sliderTitle[currentSlide - 1].classList.add("active");
+    sliderMenuLi[currentSlide - 1].classList.add("active");
+    maskBg[currentSlide - 1].classList.add("active");
+    listChick();
+
+    currentSlide++;
+    if (currentSlide > 4) {
+      currentSlide = 1;
+    }
+  }, 6000);
+}
+
+// List BG Slide
+function listChick() {
+  sliderMenuLi.forEach(function (lis) {
+    if (lis.classList.contains("active")) {
+      lis.style.backgroundColor = "#212121";
+      lis.style.color = "#ffffff";
+    } else {
+      lis.style.backgroundColor = "#FFC107";
+      lis.style.color = "#212121";
+    }
+  });
+}
+// List clicked Function
 
 // Remove All Active Classes from all Elements
 function removeAllActive() {
   sliderImage.forEach(function (img) {
     img.classList.remove("active");
-});
+  });
+
   maskBg.forEach(function (msk) {
-      msk.classList.remove("active");
+    msk.classList.remove("active");
   });
   sliderTitle.forEach(function (titl) {
     titl.classList.remove("active");
@@ -42,23 +92,4 @@ function removeAllActive() {
   });
 }
 
-    //   checkFunction();
-
-    // check Function
-function checkFunction() {
-  setInterval(() => {
-      
-      removeAllActive();
-      sliderImage[currentSlide - 1].classList.add("active");
-      sliderTitle[currentSlide - 1].classList.add("active");
-      sliderMenuLi[currentSlide - 1].classList.add("active");
-      maskBg[currentSlide - 1].classList.add("active");
-    // mask.style.cssText =
-    //   "border-image: url(../photo/landingSlider/agriculture-iot-with-rice-field-background.jpg) 25 25;";
-    
-    currentSlide++;
-    if (currentSlide > 4) {
-      currentSlide = 1;
-    }
-  }, 6000);
-}
+//   checkFunction();
