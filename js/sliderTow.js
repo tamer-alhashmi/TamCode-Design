@@ -16,20 +16,10 @@ let sliderMenuLi = Array.from(document.querySelectorAll(".sliderMenu ul li"));
 
 let lesIstem = document.querySelectorAll(".sliderMenu ul li");
 
-// let slidingAT  = ;
-// let slidingDelay  = ;
-// let mask = {
-//   activeDelay: slidingAT +slidingDelay/3,
-//   xOffset: "200px",
-//   yOffset: 0,
-//   deg: "10deg"
-// }
-
-// console.log(sliderImage);
-
 currentSlide = 1;
-firstLoad();
+
 checkFunction();
+// firstLoad();
 
 for (let i = 1; i <= sliderImage.length; i++) {
   sliderMenuLi.forEach(function (lis) {
@@ -37,33 +27,37 @@ for (let i = 1; i <= sliderImage.length; i++) {
   });
 }
 
-for (let i = 0; i < sliderMenuLi.length; i++) {
-  sliderMenuLi[i].onclick = function () {
-    currentSlide = parseInt(this.getAttribute("data-count"));
-  };
-
-  checkFunction();
-}
-
 // First Load
-function firstLoad() {
-  sliderImage[currentSlide - 1].classList.add("active");
-  sliderTitle[currentSlide - 1].classList.add("active");
-  sliderMenuLi[currentSlide - 1].classList.add("active");
-  maskBg[currentSlide - 1].classList.add("active");
-}
+document.addEventListener("DOMContentLoaded", () => {
+  sliderImage[currentSlide + 2].classList.add("active");
+  sliderTitle[currentSlide + 2].classList.add("active");
+  sliderMenuLi[currentSlide + 2].classList.add("active");
+  maskBg[currentSlide + 2].classList.add("active");
+});
+
 // check Function
+
+// function checkFunction() {
+//   setInterval(() => {
+//     removeAllActive();
+//     sliderImage[currentSlide - 1].classList.add("active");
+//     sliderTitle[currentSlide - 1].classList.add("active");
+//     sliderMenuLi[currentSlide - 1].classList.add("active");
+//     maskBg[currentSlide - 1].classList.add("active");
+//     listChick();
+
+//     currentSlide++;
+//     if (currentSlide > sliderCount) {
+//       currentSlide = 1;
+//     }
+//   }, 5000);
+// }
 
 function checkFunction() {
   setInterval(() => {
     removeAllActive();
-    // if (sliderImage[currentSlide - 1].classList.add("active") === true) {
-    //   sliderImage.forEach(function (img) {
-    //     img.classList.toggle("active");
-    //   });
-    // }
-    sliderImage[currentSlide - 1].classList.add("active");
 
+    sliderImage[currentSlide - 1].classList.add("active");
     sliderTitle[currentSlide - 1].classList.add("active");
     sliderMenuLi[currentSlide - 1].classList.add("active");
     maskBg[currentSlide - 1].classList.add("active");
@@ -76,14 +70,22 @@ function checkFunction() {
   }, 5000);
 }
 
+for (let i = 0; i < sliderMenuLi.length; i++) {
+  sliderMenuLi[i].onclick = function () {
+    // checkFunction() === false;
+    currentSlide = parseInt(this.getAttribute("data-count"));
+  };
+}
+
 // List BG Slide
 function listChick() {
   sliderMenuLi.forEach(function (lis) {
+
     if (lis.classList.contains("active")) {
       lis.style.backgroundColor = "#212121";
       lis.style.color = "#ffffff";
     } else {
-      lis.style.backgroundColor = "#FFC107";
+      lis.style.backgroundColor = "#facc6b";
       lis.style.color = "#212121";
     }
   });
