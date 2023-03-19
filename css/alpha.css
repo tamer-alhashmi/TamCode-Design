@@ -29,6 +29,7 @@
 body {
     font-family: "Cairo", sans-serif;
     font-size: var(--font-size-base);
+    /* overflow: hidden; */
 }
 
 html {
@@ -63,6 +64,10 @@ html {
         outline: 3px solid var(--main-color);
 }
 
+.tamCodeSection {
+    position: relative;
+    overflow: hidden;
+}
 /* End Variables */
 
 
@@ -361,16 +366,7 @@ a {
     transition: 0.6s;
 }
 
-.sliderContainer::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-color: #011d2b65;
-    z-index: 1;
-}
+
 
 .sliderContainer .sliderImage {
     position: absolute;
@@ -383,24 +379,35 @@ a {
     opacity: 0;
     transition: 0.5s;
 }
+.sliderContainer .sliderImage::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #1d1d1d65;
+    z-index: 1;
+}
+
 .sliderContainer .sliderImage.active {
     opacity: 1;
 }
 
 .sliderContainer .sliderImage:first-child {
-    background-image: url(../photo/landingSlider/slide\(1\).webp);
+    background-image: url(../photo/mainSlider/1Design.webp);
 }
 .sliderContainer .sliderImage:nth-child(2) {
-    background-image: url(../photo/landingSlider/slide\(2\).webp);
+    background-image: url(../photo/mainSlider/2Choose.webp);
 }
 .sliderContainer .sliderImage:nth-child(3) {
-    background-image: url(../photo/landingSlider/slide\(3\).webp);
+    background-image: url(../photo/mainSlider/3Coding.webp);
 }
 .sliderContainer .sliderImage:nth-child(4) {
-    background-image: url(../photo/landingSlider/agriculture-iot-with-rice-field-background.jpg);
+    background-image: url(../photo/mainSlider/4Respo.webp);
 }
 .sliderContainer .sliderImage:nth-child(5) {
-    background-image: url(../photo/landingSlider/businessman-using-digital-tablet.jpg);
+    background-image: url(../photo/mainSlider/5StartBusiness.webp);
 }
 
 .sliderText {
@@ -422,10 +429,21 @@ a {
     transform-origin: left;
     text-transform: uppercase;
     padding: 20px 0;
+    backface-visibility: visible;
 }
 
 .sliderText h2.active {
     opacity: 1;
+    animation: headingFlip 4s ease-in-out ;
+}
+@keyframes headingFlip {
+    0% {
+        transform: rotate3d(90deg);
+    }
+    100% {
+        
+        transform: rotate3d(360deg);
+    }
 }
 
 .sliderText p {
@@ -435,12 +453,13 @@ a {
     margin-top: 10px;
     max-width: fit-content;
     text-transform: capitalize;
-    transition: 1s;
+    transition: 0.5s;
     opacity: 0;
     letter-spacing: 2px;
     overflow: hidden;
     border-right: 2px solid rgb(255 255 255 / 80%);
     white-space: nowrap;
+    word-wrap: break-word;
 }
 .sliderText p.textAnimation {
     animation: textTyping 2s steps(100) 2s both, blink 0.5s infinite;
@@ -687,21 +706,11 @@ a {
 }
 /* slidTitle End */
 
-/* Slider Link */
-.sliderTowLink {
-    background-color: var(--main-color);
-    color: white;
-    padding: 8px 10px;
-    /* margin-top: 100px; */
-    margin: 0 auto;
-    display: block;
-    width: 100%;
 
-}
 /* Start portofolio */
 .portofolio {
     position: relative;
-    padding: 100px 0;
+    padding: 30px 0;
     transition: top var(--main-transition);
 }
 
@@ -2809,42 +2818,46 @@ body {
 .how-works .works-area {
     background-color: transparent;
 }
-
-.parrallTitle {
-    font-size: var(--font-size-lg);
-    margin-left: 10vw;
+.slideTitle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100px;
+}
+.slideTitle .parrallTitle {
+    /* position: relative; */
+    font-size: var(--font-size-xxl);
+    text-transform: uppercase;
     color: white;
-    margin: 65px;
+    margin: 20px;
+    /* white-space: nowrap; */
+    overflow: hidden;
+    top: 0;
+    /* transform: translate(0 -50%); */
+    width: 100%;
+    opacity: 1;
+    animation: titleS lide 10s steps(10000) infinite ;
+}
+@keyframes titleSlide {
+    0% {
+        left: 0%;
+        width: 0%;
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+        width: 100%;
+    }
+    100% {
+        opacity: 0;
+        left: 100%;
+        width: 0;
+    }
 }
 
 /* Discount Section */
-
-
-
-
-
-
-
-.grid div:first-child:before{
-    content: 'Element1';
-}
-.grid div:nth-child(2):before{
-    content: 'Element2';
-}
-.grid div:nth-child(3):before{
-    content: 'Element3';
-}
-.grid div:nth-child(4):before{
-    content: 'Element4';
-}
-.grid div:nth-child(5):before{
-    content: 'Element5';
-}
-.grid div:nth-child(6):before{
-    content: 'Element6';
-}
-
-
 
 
 
@@ -3143,3 +3156,7 @@ section.newSlider {
     }
 
 }
+
+
+/* **************************** Start QUIIIIZ. */
+/* **************************** End QUIIIIZ. */

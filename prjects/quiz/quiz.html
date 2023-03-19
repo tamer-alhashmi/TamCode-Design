@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/Normalize.css">
+    <link rel="stylesheet" href="quiz.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900;1000&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Arabic Quiz</title>
+</head>
+<body>
+    <h1>مسابقات رمضانية 2023</h1>
+    <div class="quiz-app">
+        <div class="quiz-info">
+            <div class="category" >القسم :  <span>منوعات</span></div>
+            <div class="count">عدد الأسئلة : <span>13</span></div>
+        </div>
+        <div class="quiz-area">
+            <h2>ما السورة التي شيعها ثلاثون ألف ملك؟</h2>
+        </div>
+        <div class="answer-area">
+            <div class="answer">
+                <input type="radio" name="question" id="answer_1" checked>
+                <label for="answer_1">المُلك و غافر</label>
+            </div>
+            <div class="answer">
+                <input type="radio" name="question" id="answer_2">
+                <label for="answer_2">البقرة</label>
+            </div>
+            <div class="answer">
+                <input type="radio" name="question" id="answer_3">
+                <label for="answer_3">الفاتحة و يونس</label>
+            </div>
+            <div class="answer">
+                <input type="radio" name="question" id="answer_4">
+                <label for="answer_4">الأنفال</label>
+            </div>
+        </div>
+        <button class="submit-button">السؤال التالي</button>
+        <div class="bullets">
+            <div class="spans">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span class="active"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="countdown">
+                <span class="minutes">02</span>:
+                <span class="secondes">02</span>
+            </div>
+        </div>
+        <!-- <div class="results"><span class="perfect">Perfect</span>You Answering 13 From 13</div> -->
+        <div class="results"><span class="good">عمل رائع  </span>قمت بالإجابه على 13 من 13 سؤال</div>
+    </div>
+
+
+
+    <script src="quiz.js"></script>
+</body>
+</html>

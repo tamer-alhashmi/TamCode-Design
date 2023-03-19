@@ -72,8 +72,8 @@ function checkFunction() {
 
 for (let i = 0; i < sliderMenuLi.length; i++) {
   sliderMenuLi[i].onclick = function () {
-    // checkFunction() === false;
     currentSlide = parseInt(this.getAttribute("data-count"));
+    clearInterval(checkFunction);
   };
 }
 

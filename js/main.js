@@ -7,8 +7,6 @@ let sliderCount = sliderImages.length;
 let sliderHeading = Array.from(document.querySelectorAll(".sliderText h2"));
 let sliderPara = Array.from(document.querySelectorAll(".sliderText p"));
 
-currentSlide = 1;
-
 // Creating ul and li
 let paginationelement = document.createElement("ul");
 paginationelement.setAttribute("id", "pagination-ul");
@@ -20,7 +18,18 @@ for (let i = 1; i <= sliderCount; i++) {
   paginationelement.appendChild(paginationItem);
 }
 document.getElementById("indicators").appendChild(paginationelement);
+currentSlide = 1;
 
+document.addEventListener("DOMContentLoaded", () => {
+  removeAllActive();
+
+  sliderImages[currentSlide + 0].classList.add("active");
+  sliderHeading[currentSlide + 0].classList.add("active");
+  sliderPara[currentSlide + 0].classList.add("textAnimation");
+  paginationCreatedUl.children[currentSlide + 0].classList.add("active");
+});
+
+// Array From List
 let paginationBullets = Array.from(
   document.querySelectorAll("#pagination-ul li")
 );
@@ -32,24 +41,24 @@ for (let i = 0; i < paginationBullets.length; i++) {
   };
 }
 let paginationCreatedUl = document.getElementById("pagination-ul");
-
 theChecker();
 
 // Creating TheChecker
 function theChecker() {
-  removeAllActive();
-  sliderImages[currentSlide - 1].classList.add("active");
-  sliderHeading[currentSlide - 1].classList.add("active");
-  sliderPara[currentSlide - 1].classList.add("textAnimation");
-  paginationCreatedUl.children[currentSlide - 1].classList.add("active");
-
-  // currentSlide = 1;
   setInterval(() => {
+    removeAllActive();
+
+    sliderImages[currentSlide - 1].classList.add("active");
+    sliderHeading[currentSlide - 1].classList.add("active");
+    sliderPara[currentSlide - 1].classList.add("textAnimation");
+    paginationCreatedUl.children[currentSlide - 1].classList.add("active");
+
+    // currentSlide = 1;
     currentSlide++;
     if (currentSlide > sliderCount) {
       currentSlide = 1;
     }
-  }, 4000);
+  }, 6000);
 }
 
 function removeAllActive() {
@@ -366,3 +375,10 @@ function shuffle(array) {
 }
 
 
+// **************************** Start  QUIIIIZ.
+
+
+
+
+
+// **************************** End  QUIIIIZ.

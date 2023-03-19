@@ -1,0 +1,201 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@400;700&display=swap');
+
+body{
+    font-family: "Almarai";
+    behavior: smooth;
+    direction: rtl;
+    background-image: url(pexels-craig-adderley-1652301.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(2px);
+    height: calc(100vh - 60px);
+
+}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+:root {
+    --font-size-sm: clamp(0.8rem, 0.17vw + 0.76rem, 0.89rem);
+    --font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
+    --font-size-md: clamp(1.25rem, 0.61vw + 1.1rem, 1.58rem);
+    --font-size-lg: clamp(1.56rem, 1vw + 1.31rem, 2.11rem);
+    --font-size-xl: clamp(1.95rem, 1.56vw + 1.56rem, 2.81rem);
+    --font-size-xxl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
+    --font-size-xxxl: clamp(3.05rem, 3.54vw + 2.17rem, 5rem);
+
+    --main-color: #009688;
+    --main-color-light-alt: #B2DFDB;
+    --main-color-dark-alt: #00796B;
+    --txt-prim-clr: #212121;
+    --txt-sec-clr: #757575;
+    --btn-clr: #03A9F4;
+    --divedor-clr: #BDBDBD;
+    --trans: 0.4s ease;
+
+}
+
+:focus {
+    outline: 3px solid var(--main-color);
+}
+
+:focus:not(:focus-visible) {
+    outline-color: transparent;
+}
+
+:focus-visible {
+    outline: 3px solid var(--main-color);
+}
+
+h1 {
+    margin: 30px auto;
+    text-align: center;
+    color: white;
+}
+.quiz-app {
+    /* clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 80%); */
+    display: flex;
+    flex-direction: column;
+    width: min(1200px, 100%);
+    /* width: 800px; */
+    transform: rotateZ(1, 1, 1, 340deg);
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #00968840;
+    backdrop-filter: blur(10px);
+}
+
+.quiz-app .quiz-info {
+    display: flex;
+    background-color: #ffffff30;
+    backdrop-filter: blur(3px);
+    color: white;
+    padding: 20px;
+}
+
+.quiz-app .quiz-info .category {
+    flex: 1;
+}
+.quiz-app .quiz-info .count{
+    flex: 1;
+    text-align: right;
+}
+
+.quiz-area h2,
+.quiz-area span {
+        color: white;
+        margin: 30px 20px;
+}
+.quiz-app .answer-area{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0 20px 20px;
+    height: 220px;
+}
+
+.quiz-app .answer-area .answer{
+    background-color: #011608d2;
+    backdrop-filter: blur(3px);
+    color: white;
+    padding: 15px;
+    overflow: hidden;
+}
+
+.quiz-app .answer-area .answer:not(:last-child) {
+    border-bottom: 1px solid #dfdfdf;
+}
+
+.quiz-app .answer-area .answer input[type="radio"]:checked {
+    transition: var(--trans);
+    border-color: var(--main-color);
+}
+
+.quiz-app .answer-area .answer input[type="radio"]:checked + label {
+    transition: var(--trans);
+    font-weight: bold;
+}
+.quiz-app .answer-area .answer label {
+    position: relative;
+    top: -1px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    margin-right: 5px;
+}
+.quiz-app .submit-button{
+    background-color: var(--main-color);
+    padding: 6px 18px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-weight: 500;
+    font-size: 18px;
+    margin: 20px auto ;
+    transition: var(--trans);
+    width: 50%;
+    cursor: pointer;
+}
+.quiz-app .submit-button:focus {
+    outline: none;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.219);
+}
+.bullets {
+    display: flex;
+    justify-content: center;
+}
+
+.bullets .spans {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 25%;
+    margin: 0 auto;
+    transition: var(--trans);
+}
+@media (max-width: 767px) {
+    .bullets .spans {
+        width: 50%;
+    }
+}
+.bullets .spans span{
+    background-color: var(--main-color);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    transition: var(--trans);
+}
+.bullets .spans span.active {
+    scale: 1.5;
+    box-shadow: 0 0 15px var(--main-color);
+}
+.bullets .countdown {
+    color: white;
+    margin-right: 20px;
+}
+.results {
+    margin: 20px 0;
+    color: white;
+    background-color: var(--main-color-);
+}
+.results span {
+    text-shadow: 0 1px 5px black;
+    font-size: var(--font-size-md);
+    font-weight: bold;
+    letter-spacing: 0;
+}
+
+.results span.pad {
+    color: #dc0a0a;
+}
+.results span.good {
+    color: #e2b900;
+}
+
+.results span.perfect {
+    color: #00e2cc;
+}
