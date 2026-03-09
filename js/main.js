@@ -134,7 +134,7 @@ function startCount(el) {
 
 // Event Section Animation Start
 
-let countDownDate = new Date("Nov 21, 2023 23:59:59").getTime();
+let countDownDate = new Date("Dec 31, 2026 23:59:59").getTime();
 // console.log(countDownDate);
 let counter = setInterval(() => {
   // Get date now
@@ -336,6 +336,16 @@ function checkMatchedBlocks(firstBlock, secondeBlock) {
     secondeBlock.classList.add("has-mach");
 
     document.getElementById("success").play();
+
+    // Check Win Condition
+    const matched = blocks.filter(b => b.classList.contains("has-mach"));
+    if (matched.length === blocksCount) {
+      setTimeout(() => {
+        const tries = parseInt(triesElement.innerHTML);
+        const userName = document.querySelector(".info .userName span").innerHTML || "Player";
+        alert(`🎉 Congratulations ${userName}! You won with ${tries} wrong tries!`);
+      }, 400);
+    }
   } else {
     triesElement.innerHTML = parseInt(triesElement.innerHTML) + 1;
 
