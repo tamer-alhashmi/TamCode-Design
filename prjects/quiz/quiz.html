@@ -1,77 +1,714 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/Normalize.css">
-    <link rel="stylesheet" href="quiz.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900;1000&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
-        rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Arabic Quiz</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مسابقات TamCode</title>
+  <link rel="stylesheet" href="/css/Normalize.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #2196f3;
+      --primary-dark: #1787e0;
+      --success: #4caf50;
+      --danger: #f44336;
+      --warning: #ff9800;
+      --dark: #1a1a2e;
+      --card: #16213e;
+      --card2: #0f3460;
+      --text: #e0e0e0;
+      --text-muted: #9e9e9e;
+      --border: rgba(255,255,255,0.1);
+      --radius: 16px;
+      --shadow: 0 16px 40px rgba(0,0,0,0.4);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(135deg, var(--dark) 0%, #0d1b3e 100%);
+      min-height: 100vh;
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    /* ── Back Button ──────────────────────────────────── */
+    .back-btn {
+      position: fixed;
+      top: 16px; left: 16px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 10px 18px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-family: 'Cairo', sans-serif;
+      transition: 0.3s;
+      display: flex; align-items: center; gap: 8px;
+      backdrop-filter: blur(10px);
+      z-index: 100;
+    }
+
+    .back-btn:hover { background: var(--primary); color: #fff; }
+
+    /* ── Common Card ──────────────────────────────────── */
+    .screen {
+      width: 100%;
+      max-width: 640px;
+      margin: 60px auto 20px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 40px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      text-align: center;
+    }
+
+    /* ── Welcome Screen ──────────────────────────────── */
+    #welcomeScreen {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .quiz-hero {
+      margin-bottom: 12px;
+    }
+
+    .quiz-hero i {
+      font-size: 4rem;
+      color: var(--primary);
+      filter: drop-shadow(0 0 20px rgba(33,150,243,0.5));
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .quiz-title {
+      font-size: 2rem;
+      font-weight: 800;
+      margin: 16px 0 8px;
+      background: linear-gradient(135deg, var(--primary), #64b5f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .quiz-subtitle {
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      font-size: 0.95rem;
+    }
+
+    .quiz-stats-preview {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-bottom: 32px;
+    }
+
+    .quiz-stat {
+      text-align: center;
+    }
+
+    .quiz-stat strong {
+      display: block;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .quiz-stat span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .name-input-group {
+      display: flex;
+      gap: 12px;
+      flex-direction: column;
+      align-items: stretch;
+      width: 100%;
+      max-width: 360px;
+      margin: 0 auto;
+    }
+
+    .name-input-group input {
+      width: 100%;
+      padding: 14px 20px;
+      background: rgba(255,255,255,0.05);
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      color: var(--text);
+      font-size: 1rem;
+      font-family: 'Cairo', sans-serif;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .name-input-group input:focus {
+      outline: none;
+      border-color: var(--primary);
+      background: rgba(33,150,243,0.08);
+    }
+
+    #nameError {
+      color: var(--danger);
+      font-size: 0.85rem;
+      display: none;
+    }
+
+    #quizError {
+      color: var(--danger);
+      background: rgba(244,67,54,0.1);
+      border: 1px solid rgba(244,67,54,0.3);
+      padding: 12px;
+      border-radius: 8px;
+      display: none;
+      margin-bottom: 16px;
+    }
+
+    .btn-start {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #fff;
+      border: none;
+      padding: 14px 40px;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      font-family: 'Cairo', sans-serif;
+      cursor: pointer;
+      transition: 0.3s;
+      width: 100%;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+    }
+
+    .btn-start:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(33,150,243,0.4); }
+
+    .view-leaderboard-link {
+      margin-top: 16px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      cursor: pointer;
+      text-decoration: underline;
+      background: none; border: none;
+      font-family: 'Cairo', sans-serif;
+    }
+
+    .view-leaderboard-link:hover { color: var(--primary); }
+
+    /* ── Quiz Screen ─────────────────────────────────── */
+    #quizScreen { display: none; }
+
+    .quiz-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .question-counter {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .score-display {
+      font-size: 0.85rem;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .timer-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    #timerDisplay {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--primary);
+      min-width: 36px;
+      text-align: center;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    .progress-bar-wrapper {
+      height: 6px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 3px;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+
+    #progressBar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), #64b5f6);
+      border-radius: 3px;
+      transition: width 0.5s ease;
+    }
+
+    .question-card {
+      background: var(--card2);
+      border-radius: var(--radius);
+      padding: 28px;
+      margin-bottom: 20px;
+      min-height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border: 1px solid var(--border);
+    }
+
+    #questionText {
+      font-size: 1.2rem;
+      font-weight: 700;
+      line-height: 1.6;
+      color: #fff;
+    }
+
+    #answersContainer {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .answer-option {
+      background: rgba(255,255,255,0.04);
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      transition: 0.25s;
+      text-align: right;
+    }
+
+    .answer-option:hover:not(.correct):not(.wrong) {
+      border-color: var(--primary);
+      background: rgba(33,150,243,0.08);
+    }
+
+    .answer-option.correct {
+      border-color: var(--success);
+      background: rgba(76,175,80,0.15);
+      color: #81c784;
+    }
+
+    .answer-option.wrong {
+      border-color: var(--danger);
+      background: rgba(244,67,54,0.15);
+      color: #e57373;
+    }
+
+    .answer-marker {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+
+    .answer-option.correct .answer-marker { background: rgba(76,175,80,0.3); }
+    .answer-option.wrong .answer-marker { background: rgba(244,67,54,0.3); }
+
+    .btn-next {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: 'Cairo', sans-serif;
+      cursor: pointer;
+      width: 100%;
+      transition: 0.3s;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+    }
+
+    .btn-next:hover:not(:disabled) { background: var(--primary-dark); }
+    .btn-next:disabled { cursor: not-allowed; }
+
+    /* Bullets */
+    #bulletsContainer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .bullet {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      transition: 0.3s;
+    }
+
+    .bullet.active { background: var(--primary); transform: scale(1.3); }
+    .bullet.done { background: var(--success); }
+
+    /* ── Results Screen ──────────────────────────────── */
+    #resultsScreen { display: none; }
+
+    .result-top {
+      margin-bottom: 24px;
+    }
+
+    #resultEmoji {
+      font-size: 4rem;
+      display: block;
+      margin-bottom: 8px;
+      animation: bounceIn 0.6s ease;
+    }
+
+    @keyframes bounceIn {
+      0% { transform: scale(0); }
+      60% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    #resultMessage {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    #resultName {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 6px;
+    }
+
+    /* Score Ring */
+    .score-ring-wrapper {
+      position: relative;
+      width: 120px; height: 120px;
+      margin: 24px auto;
+    }
+
+    .score-ring-wrapper svg {
+      transform: rotate(-90deg);
+    }
+
+    .score-ring-bg { fill: none; stroke: rgba(255,255,255,0.08); stroke-width: 8; }
+    #scoreCircle {
+      fill: none;
+      stroke: var(--primary);
+      stroke-width: 8;
+      stroke-linecap: round;
+      stroke-dasharray: 283;
+      stroke-dashoffset: 283;
+      transition: stroke-dashoffset 1s ease;
+    }
+
+    .score-ring-text {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .score-ring-text strong {
+      display: block;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .score-ring-text span { font-size: 0.75rem; color: var(--text-muted); }
+
+    .result-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .result-stat-item {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 10px;
+    }
+
+    .result-stat-item i {
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+      color: var(--primary);
+    }
+
+    .result-stat-item strong {
+      display: block;
+      font-size: 1.1rem;
+      font-weight: 800;
+    }
+
+    .result-stat-item span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    #resultRank {
+      color: var(--warning);
+      font-weight: 700;
+      margin-bottom: 20px;
+      font-size: 1rem;
+    }
+
+    .result-actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn-outline {
+      flex: 1;
+      padding: 12px 20px;
+      border: 2px solid var(--primary);
+      background: transparent;
+      color: var(--primary);
+      border-radius: 12px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      font-family: 'Cairo', sans-serif;
+      cursor: pointer;
+      transition: 0.3s;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+
+    .btn-outline:hover { background: var(--primary); color: #fff; }
+
+    .btn-filled {
+      flex: 1;
+      padding: 12px 20px;
+      border: none;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      font-family: 'Cairo', sans-serif;
+      cursor: pointer;
+      transition: 0.3s;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+
+    .btn-filled:hover { background: var(--primary-dark); }
+
+    /* ── Leaderboard Screen ──────────────────────────── */
+    #leaderboardScreen { display: none; }
+
+    #leaderboardScreen .card { text-align: right; }
+
+    .leaderboard-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 24px;
+      color: var(--warning);
+    }
+
+    .leaderboard-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      border-radius: 10px;
+      margin-bottom: 8px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      transition: 0.2s;
+    }
+
+    .leaderboard-item.is-me {
+      border-color: var(--primary);
+      background: rgba(33,150,243,0.1);
+    }
+
+    .leaderboard-item .rank { font-size: 1.4rem; min-width: 36px; text-align: center; }
+    .leaderboard-item .player-name { flex: 1; font-weight: 600; }
+    .leaderboard-item .player-score { font-size: 0.85rem; color: var(--text-muted); }
+
+    .loading-msg, .empty-msg {
+      text-align: center;
+      padding: 32px;
+      color: var(--text-muted);
+    }
+  </style>
 </head>
 <body>
-    <h1>مسابقات رمضانية 2023</h1>
-    <div class="quiz-app">
-        <div class="quiz-info">
-            <div class="category" >القسم :  <span>منوعات</span></div>
-            <div class="count">عدد الأسئلة : <span>13</span></div>
-        </div>
-        <div class="quiz-area">
-            <h2>ما السورة التي شيعها ثلاثون ألف ملك؟</h2>
-        </div>
-        <div class="answer-area">
-            <div class="answer">
-                <input type="radio" name="question" id="answer_1" checked>
-                <label for="answer_1">المُلك و غافر</label>
-            </div>
-            <div class="answer">
-                <input type="radio" name="question" id="answer_2">
-                <label for="answer_2">البقرة</label>
-            </div>
-            <div class="answer">
-                <input type="radio" name="question" id="answer_3">
-                <label for="answer_3">الفاتحة و يونس</label>
-            </div>
-            <div class="answer">
-                <input type="radio" name="question" id="answer_4">
-                <label for="answer_4">الأنفال</label>
-            </div>
-        </div>
-        <button class="submit-button">السؤال التالي</button>
-        <div class="bullets">
-            <div class="spans">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span class="active"></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div class="countdown">
-                <span class="minutes">02</span>:
-                <span class="secondes">02</span>
-            </div>
-        </div>
-        <!-- <div class="results"><span class="perfect">Perfect</span>You Answering 13 From 13</div> -->
-        <div class="results"><span class="good">عمل رائع  </span>قمت بالإجابه على 13 من 13 سؤال</div>
+
+<a href="/" class="back-btn"><i class="fas fa-arrow-right"></i> العودة للرئيسية</a>
+
+<!-- ════════════════ WELCOME SCREEN ════════════════ -->
+<div class="screen" id="welcomeScreen">
+  <div class="card">
+    <div class="quiz-hero">
+      <i class="fas fa-brain"></i>
+    </div>
+    <h1 class="quiz-title">مسابقات TamCode</h1>
+    <p class="quiz-subtitle">اختبر معلوماتك في هذه المسابقة الممتعة!</p>
+
+    <div class="quiz-stats-preview">
+      <div class="quiz-stat">
+        <strong>13</strong>
+        <span>سؤال</span>
+      </div>
+      <div class="quiz-stat">
+        <strong>30s</strong>
+        <span>لكل سؤال</span>
+      </div>
+      <div class="quiz-stat">
+        <strong>∞</strong>
+        <span>محاولة</span>
+      </div>
     </div>
 
+    <div id="quizError"></div>
 
+    <div class="name-input-group">
+      <input
+        type="text"
+        id="playerNameInput"
+        placeholder="أدخل اسمك..."
+        maxlength="30"
+        onkeypress="if(event.key==='Enter')startQuiz()"
+      />
+      <span id="nameError">يرجى إدخال اسمك أولاً</span>
+      <button class="btn-start" onclick="startQuiz()">
+        <i class="fas fa-play-circle"></i>
+        ابدأ المسابقة
+      </button>
+    </div>
 
-    <script src="quiz.js"></script>
+    <button class="view-leaderboard-link" onclick="showLeaderboard(); resultsScreen.style.display='none'; document.getElementById('leaderboardScreen').style.display='block'; welcomeScreen.style.display='none';">
+      <i class="fas fa-trophy"></i> عرض قائمة الأوائل
+    </button>
+  </div>
+</div>
+
+<!-- ════════════════ QUIZ SCREEN ════════════════ -->
+<div class="screen" id="quizScreen">
+  <div class="card" style="padding: 28px;">
+    <div class="quiz-header">
+      <span class="question-counter" id="questionCounter">السؤال 1 من 13</span>
+      <div class="timer-wrapper">
+        <i class="fas fa-clock"></i>
+        <span id="timerDisplay">30</span>
+      </div>
+      <span class="score-display" id="scoreDisplay">النقاط: 0</span>
+    </div>
+
+    <div class="progress-bar-wrapper">
+      <div id="progressBar" style="width:0%"></div>
+    </div>
+
+    <div class="question-card">
+      <p id="questionText">جاري التحميل...</p>
+    </div>
+
+    <div id="answersContainer"></div>
+
+    <button class="btn-next" id="nextBtn" onclick="nextQuestion()" disabled>
+      <i class="fas fa-arrow-left"></i>
+      التالي
+    </button>
+
+    <div id="bulletsContainer"></div>
+  </div>
+</div>
+
+<!-- ════════════════ RESULTS SCREEN ════════════════ -->
+<div class="screen" id="resultsScreen">
+  <div class="card">
+    <div class="result-top">
+      <span id="resultEmoji">🏆</span>
+      <div id="resultMessage">ممتاز!</div>
+      <div id="resultName"></div>
+    </div>
+
+    <div class="score-ring-wrapper">
+      <svg viewBox="0 0 100 100" width="120" height="120">
+        <circle class="score-ring-bg" cx="50" cy="50" r="45"/>
+        <circle id="scoreCircle" cx="50" cy="50" r="45"/>
+      </svg>
+      <div class="score-ring-text">
+        <strong id="resultPercentage">0%</strong>
+        <span>النتيجة</span>
+      </div>
+    </div>
+
+    <div class="result-stats">
+      <div class="result-stat-item">
+        <i class="fas fa-check-circle"></i>
+        <strong id="resultScore">0/13</strong>
+        <span>إجابة صحيحة</span>
+      </div>
+      <div class="result-stat-item">
+        <i class="fas fa-clock"></i>
+        <strong id="resultTime">0s</strong>
+        <span>الوقت</span>
+      </div>
+      <div class="result-stat-item">
+        <i class="fas fa-medal"></i>
+        <strong id="resultRank">—</strong>
+        <span>الترتيب</span>
+      </div>
+    </div>
+
+    <div class="result-actions">
+      <button class="btn-outline" onclick="showLeaderboard()">
+        <i class="fas fa-trophy"></i> الأوائل
+      </button>
+      <button class="btn-filled" onclick="restartQuiz()">
+        <i class="fas fa-redo-alt"></i> العب مجدداً
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════ LEADERBOARD SCREEN ════════════════ -->
+<div class="screen" id="leaderboardScreen">
+  <div class="card">
+    <div class="leaderboard-title">
+      <i class="fas fa-trophy"></i> قائمة الأوائل
+    </div>
+    <div id="leaderboardList">
+      <div class="loading-msg">جاري التحميل...</div>
+    </div>
+    <br>
+    <button class="btn-filled" onclick="restartQuiz()" style="width:100%;justify-content:center;">
+      <i class="fas fa-home"></i> العودة للبداية
+    </button>
+  </div>
+</div>
+
+<!-- Audio -->
+<audio id="success" src="/audio/success.mp3" preload="auto"></audio>
+<audio id="fail" src="/audio/negative.mp3" preload="auto"></audio>
+
+<script src="quiz.js"></script>
 </body>
 </html>

@@ -822,19 +822,19 @@
               </div>
             </div>
             <div class="info">
-              <h2>Tech Masters Event 2021</h2>
+              <h2>TamCode Dev Summit 2026</h2>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum
-                officia repellendus magnam ut Ipsum officia repellendus magnam
-                cupiditate,
+                Join our exclusive web development event where we showcase the latest
+                projects, live coding sessions, and networking opportunities for developers.
               </p>
             </div>
           </div>
           <div class="sub">
-            <form action="">
-              <input type="email" placeholder="Enter Your Email""> <input type="
-              submit" value="Subscribe"">
+            <form id="subscribeForm" onsubmit="handleSubscribe(event)">
+              <input type="email" id="subscribeEmail" placeholder="Enter Your Email" required />
+              <input type="submit" value="Subscribe" />
             </form>
+            <div id="subscribeMsg" style="margin-top:10px;font-size:0.9rem;text-align:center;"></div>
           </div>
         </div>
       </div>
@@ -1010,35 +1010,38 @@
       <div class="req-disc">
         <div class="content">
           <h2>Request A Discount</h2>
-          <form action="">
+          <form id="discountForm" onsubmit="handleDiscount(event)">
             <input
               class="input-stats"
               type="text"
-              name="name"
+              id="discountName"
               placeholder="Your Name"
+              required
             />
             <input
               class="input-stats"
-              type="mail"
-              name="mail"
+              type="email"
+              id="discountEmail"
               placeholder="Your Email"
+              required
             />
             <input
               class="input-stats"
-              type="phone"
-              name="mail"
+              type="tel"
+              id="discountPhone"
               placeholder="Your Phone"
             />
             <textarea
               class="input-stats"
-              name="tell-us"
-              id=""
+              id="discountMessage"
               cols="10"
               rows="10"
               placeholder="Tell Us About Your Needs"
+              required
             ></textarea>
-            <input type="submit" value="Send" />
+            <input type="submit" value="Send Request" />
           </form>
+          <div id="discountMsg" style="margin-top:12px;font-size:0.95rem;"></div>
         </div>
       </div>
     </section>
@@ -1114,8 +1117,5 @@
   </body>
   <!-- End Footer -->
   <script src="js/main.js"></script>
-  <!-- swiper js -->
-  <!-- <script src="js/swiper-bundle.min.js"></script> -->
-  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.all.min.js"></script>
+  <script src="js/api.js"></script>
 </html>
